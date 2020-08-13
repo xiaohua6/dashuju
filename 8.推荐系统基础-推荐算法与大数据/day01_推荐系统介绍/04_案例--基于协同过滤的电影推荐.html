@@ -1,0 +1,1362 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.4_案例--基于协同过滤的电影推荐 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="07_ 推荐系统评估.html" />
+    
+    
+    <link rel="prev" href="03_推荐算法.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">一 推荐系统简介</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="01_推荐系统简介.html">
+            
+                <a href="01_推荐系统简介.html">
+            
+                    
+                    1.1_推荐系统简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="02_推荐系统架构设计.html">
+            
+                <a href="02_推荐系统架构设计.html">
+            
+                    
+                    1.2_推荐系统架构设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="03_推荐算法.html">
+            
+                <a href="03_推荐算法.html">
+            
+                    
+                    1.3_推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="04_案例--基于协同过滤的电影推荐.html">
+            
+                <a href="04_案例--基于协同过滤的电影推荐.html">
+            
+                    
+                    1.4_案例--基于协同过滤的电影推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="07_ 推荐系统评估.html">
+            
+                <a href="07_ 推荐系统评估.html">
+            
+                    
+                    1.5_推荐系统评估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="08_ 推荐系统冷启动问题.html">
+            
+                <a href="08_ 推荐系统冷启动问题.html">
+            
+                    
+                    1.6_推荐系统的冷启动问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">二 推荐系统算法</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../day02_推荐算法/01_基于模型的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/01_基于模型的协同过滤推荐.html">
+            
+                    
+                    2.1_基于模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../day02_推荐算法/03_基于回归模型的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/03_基于回归模型的协同过滤推荐.html">
+            
+                    
+                    2.2_基于回归模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../day02_推荐算法/04_基于矩阵分解的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/04_基于矩阵分解的协同过滤推荐.html">
+            
+                    
+                    2.3_基于矩阵分解的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../day02_推荐算法/05_LFM算法实现.html">
+            
+                <a href="../day02_推荐算法/05_LFM算法实现.html">
+            
+                    
+                    2.4_LFM算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../day02_推荐算法/06_BiasSVD算法实现.html">
+            
+                <a href="../day02_推荐算法/06_BiasSVD算法实现.html">
+            
+                    
+                    2.5_BiasSVD算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../day02_推荐算法/07_基于内容的推荐算法.html">
+            
+                <a href="../day02_推荐算法/07_基于内容的推荐算法.html">
+            
+                    
+                    2.6_基于内容的推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../day02_推荐算法/08_物品画像.html">
+            
+                <a href="../day02_推荐算法/08_物品画像.html">
+            
+                    
+                    2.7_电影推荐(ContentBased)物品画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../day02_推荐算法/09_用户画像.html">
+            
+                <a href="../day02_推荐算法/09_用户画像.html">
+            
+                    
+                    2.8_电影推荐(ContentBased)用户画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../day02_推荐算法/10_TOPN用户推荐.html">
+            
+                <a href="../day02_推荐算法/10_TOPN用户推荐.html">
+            
+                    
+                    2.9_电影推荐(ContentBased)TOP-N用户推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">三 Hadoop</li>
+        
+        
+    
+
+    
+        
+        <li class="header">3.1 Hadoop概述</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../day03_Hadoop/ha1.1.html">
+            
+                <a href="../day03_Hadoop/ha1.1.html">
+            
+                    
+                    01_什么是Hadoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../day03_Hadoop/ha1.2.html">
+            
+                <a href="../day03_Hadoop/ha1.2.html">
+            
+                    
+                    02_Hadoop核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../day03_Hadoop/ha1.3.html">
+            
+                <a href="../day03_Hadoop/ha1.3.html">
+            
+                    
+                    03_Hadoop优势
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.2 分布式文件系统HDFS</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../day03_Hadoop/ha2.1.html">
+            
+                <a href="../day03_Hadoop/ha2.1.html">
+            
+                    
+                    01_HDFS的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../day03_Hadoop/ha2.2.html">
+            
+                <a href="../day03_Hadoop/ha2.2.html">
+            
+                    
+                    02_HDFS Shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../day03_Hadoop/ha2.3.html">
+            
+                <a href="../day03_Hadoop/ha2.3.html">
+            
+                    
+                    03_HDFS设计思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../day03_Hadoop/ha2.4.html">
+            
+                <a href="../day03_Hadoop/ha2.4.html">
+            
+                    
+                    04_HDFS架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../day03_Hadoop/ha2.5.html">
+            
+                <a href="../day03_Hadoop/ha2.5.html">
+            
+                    
+                    05_HDFS环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.3 YARN&MapReduce</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../day03_Hadoop/ha3.1.html">
+            
+                <a href="../day03_Hadoop/ha3.1.html">
+            
+                    
+                    01_资源调度框架YARN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../day03_Hadoop/ha3.2.html">
+            
+                <a href="../day03_Hadoop/ha3.2.html">
+            
+                    
+                    02_分布式计算框架MapReduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../day03_Hadoop/ha3.3.html">
+            
+                <a href="../day03_Hadoop/ha3.3.html">
+            
+                    
+                    03_MapReduce实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../day03_Hadoop/ha3.5.html">
+            
+                <a href="../day03_Hadoop/ha3.5.html">
+            
+                    
+                    04_MapReduce原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.4 Hadoop概念扩展</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../day03_Hadoop/ha4.1.html">
+            
+                <a href="../day03_Hadoop/ha4.1.html">
+            
+                    
+                    01_Hadoop生态系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../day03_Hadoop/ha4.2.html">
+            
+                <a href="../day03_Hadoop/ha4.2.html">
+            
+                    
+                    02_HDFS读写流程&高可用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../day03_Hadoop/ha4.3.html">
+            
+                <a href="../day03_Hadoop/ha4.3.html">
+            
+                    
+                    03_Hadoop发行版选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">四 Hive</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Hive&HBase/01_hive介绍.html">
+            
+                <a href="../Hive&HBase/01_hive介绍.html">
+            
+                    
+                    01_Hive基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../Hive&HBase/02_hive的shell操作.html">
+            
+                <a href="../Hive&HBase/02_hive的shell操作.html">
+            
+                    
+                    02_Hive的shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../Hive&HBase/03_Hive的函数和自定义函数.html">
+            
+                <a href="../Hive&HBase/03_Hive的函数和自定义函数.html">
+            
+                    
+                    03_Hive的函数和自定义函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="../Hive&HBase/04_hive综合案例.html">
+            
+                <a href="../Hive&HBase/04_hive综合案例.html">
+            
+                    
+                    04_Hive综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">五 HBase</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Hive&HBase/05_hBase简介与环境部署.html">
+            
+                <a href="../Hive&HBase/05_hBase简介与环境部署.html">
+            
+                    
+                    01_HBase简介与环境部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../Hive&HBase/06_hbase数据模型.html">
+            
+                <a href="../Hive&HBase/06_hbase数据模型.html">
+            
+                    
+                    02_Hbase数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="../Hive&HBase/07_hbase的安装与shell操作.html">
+            
+                <a href="../Hive&HBase/07_hbase的安装与shell操作.html">
+            
+                    
+                    03_Hbase的安装与shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="../Hive&HBase/08_HappyBase操作HBase.html">
+            
+                <a href="../Hive&HBase/08_HappyBase操作HBase.html">
+            
+                    
+                    04_HappyBase操作HBase
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="../Hive&HBase/10_HBase组件.html">
+            
+                <a href="../Hive&HBase/10_HBase组件.html">
+            
+                    
+                    05_HBase组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">六 Spark Core</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../day05_Spark_core/spark_core_1.html">
+            
+                <a href="../day05_Spark_core/spark_core_1.html">
+            
+                    
+                    01_Spark入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../day05_Spark_core/spark_core_2.html">
+            
+                <a href="../day05_Spark_core/spark_core_2.html">
+            
+                    
+                    02_RDD概念介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../day05_Spark_core/spark_core_3.html">
+            
+                <a href="../day05_Spark_core/spark_core_3.html">
+            
+                    
+                    03_RDD常用算子练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../day05_Spark_core/spark_core_4.html">
+            
+                <a href="../day05_Spark_core/spark_core_4.html">
+            
+                    
+                    04_Spark-Core实战案例_pv&uv统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../day05_Spark_core/spark_core_5.html">
+            
+                <a href="../day05_Spark_core/spark_core_5.html">
+            
+                    
+                    05_Spark-Core实战_ip统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.6" data-path="../day05_Spark_core/spark_core_6.html">
+            
+                <a href="../day05_Spark_core/spark_core_6.html">
+            
+                    
+                    06_Spark安装部署&standalone模式介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">七 Spark SQL</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../day06_Spark_sql&Spark_streaming/s1.1.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.1.html">
+            
+                    
+                    01_Spark SQL简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../day06_Spark_sql&Spark_streaming/s1.2.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.2.html">
+            
+                    
+                    02_DataFrame介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" data-path="../day06_Spark_sql&Spark_streaming/s1.3.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.3.html">
+            
+                    
+                    03_Spark SQL 处理JSON数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.4" data-path="../day06_Spark_sql&Spark_streaming/s1.4.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.4.html">
+            
+                    
+                    04Spark SQL案例数据清洗
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">八 Spark Streaming</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../day06_Spark_sql&Spark_streaming/ss1.1.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.1.html">
+            
+                    
+                    05_Spark Streaming简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="../day06_Spark_sql&Spark_streaming/ss1.2.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.2.html">
+            
+                    
+                    06_Spark Streaming实现WordCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.3" data-path="../day06_Spark_sql&Spark_streaming/ss1.3.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.3.html">
+            
+                    
+                    07_Spark Steaming的状态操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">九 电商推荐案例</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                <a href="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                    
+                    01_个性化电商广告推荐系统介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                <a href="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                    
+                    02_根据用户行为数据创建ALS模型并召回商品
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.3" data-path="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                <a href="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                    
+                    03_CTR预估数据准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.4" data-path="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                <a href="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                    
+                    04_逻辑回归(LR)实现CTR预估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.5" data-path="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                <a href="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                    
+                    05_离线推荐处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.6" data-path="../day07_推荐系统案例/06_实时推荐.html">
+            
+                <a href="../day07_推荐系统案例/06_实时推荐.html">
+            
+                    
+                    06_实时推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.4_案例--基于协同过滤的电影推荐</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="14-&#x6848;&#x4F8B;--&#x57FA;&#x4E8E;&#x534F;&#x540C;&#x8FC7;&#x6EE4;&#x7684;&#x7535;&#x5F71;&#x63A8;&#x8350;">1.4 &#x6848;&#x4F8B;--&#x57FA;&#x4E8E;&#x534F;&#x540C;&#x8FC7;&#x6EE4;&#x7684;&#x7535;&#x5F71;&#x63A8;&#x8350;</h2>
+<h3 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h3>
+<ul>
+<li>&#x5E94;&#x7528;&#x57FA;&#x4E8E;&#x7528;&#x6237;&#x7684;&#x534F;&#x540C;&#x8FC7;&#x6EE4;&#x5B9E;&#x73B0;&#x7535;&#x5F71;&#x8BC4;&#x5206;&#x9884;&#x6D4B;</li>
+<li>&#x5E94;&#x7528;&#x57FA;&#x4E8E;&#x7269;&#x54C1;&#x7684;&#x534F;&#x540C;&#x8FC7;&#x6EE4;&#x5B9E;&#x73B0;&#x7535;&#x5F71;&#x8BC4;&#x5206;&#x9884;&#x6D4B;</li>
+</ul>
+<h3 id="1-user-based-cf-&#x9884;&#x6D4B;&#x7535;&#x5F71;&#x8BC4;&#x5206;">1 User-Based CF &#x9884;&#x6D4B;&#x7535;&#x5F71;&#x8BC4;&#x5206;</h3>
+<ul>
+<li><p>&#x6570;&#x636E;&#x96C6;&#x4E0B;&#x8F7D;</p>
+<ul>
+<li>&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://grouplens.org/datasets/movielens/latest/" target="_blank">MovieLens Latest Datasets Small</a></li>
+<li>&#x5EFA;&#x8BAE;&#x4E0B;&#x8F7D;<a href="http://files.grouplens.org/datasets/movielens/ml-latest-small.zip" target="_blank">ml-latest-small.zip</a>&#xFF0C;&#x6570;&#x636E;&#x91CF;&#x5C0F;&#xFF0C;&#x4FBF;&#x4E8E;&#x6211;&#x4EEC;&#x5355;&#x673A;&#x4F7F;&#x7528;&#x548C;&#x8FD0;&#x884C;</li>
+</ul>
+</li>
+<li><p>&#x52A0;&#x8F7D;ratings.csv&#xFF0C;&#x8F6C;&#x6362;&#x4E3A;&#x7528;&#x6237;-&#x7535;&#x5F71;&#x8BC4;&#x5206;&#x77E9;&#x9635;&#x5E76;&#x8BA1;&#x7B97;&#x7528;&#x6237;&#x4E4B;&#x95F4;&#x76F8;&#x4F3C;&#x5EA6;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+DATA_PATH = <span class="hljs-string">&quot;./datasets/ml-latest-small/ratings.csv&quot;</span>
+
+dtype = {<span class="hljs-string">&quot;userId&quot;</span>: np.int32, <span class="hljs-string">&quot;movieId&quot;</span>: np.int32, <span class="hljs-string">&quot;rating&quot;</span>: np.float32}
+<span class="hljs-comment"># &#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x7528;&#x524D;&#x4E09;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x7528;&#x6237;ID&#xFF0C;&#x7535;&#x5F71;ID&#xFF0C;&#x5DF2;&#x7ECF;&#x7528;&#x6237;&#x5BF9;&#x7535;&#x5F71;&#x7684;&#x5BF9;&#x5E94;&#x8BC4;&#x5206;</span>
+ratings = pd.read_csv(data_path, dtype=dtype, usecols=range(<span class="hljs-number">3</span>))
+<span class="hljs-comment"># &#x900F;&#x89C6;&#x8868;&#xFF0C;&#x5C06;&#x7535;&#x5F71;ID&#x8F6C;&#x6362;&#x4E3A;&#x5217;&#x540D;&#x79F0;&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;User-Movie&#x7684;&#x8BC4;&#x5206;&#x77E9;&#x9635;</span>
+ratings_matrix = ratings.pivot_table(index=[<span class="hljs-string">&quot;userId&quot;</span>], columns=[<span class="hljs-string">&quot;movieId&quot;</span>],values=<span class="hljs-string">&quot;rating&quot;</span>)
+<span class="hljs-comment">#&#x8BA1;&#x7B97;&#x7528;&#x6237;&#x4E4B;&#x95F4;&#x76F8;&#x4F3C;&#x5EA6;</span>
+user_similar = ratings_matrix.T.corr()
+</code></pre>
+</li>
+<li><p>&#x9884;&#x6D4B;&#x7528;&#x6237;&#x5BF9;&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206; &#xFF08;&#x4EE5;&#x7528;&#x6237;1&#x5BF9;&#x7535;&#x5F71;1&#x8BC4;&#x5206;&#x4E3A;&#x4F8B;&#xFF09;</p>
+<p><strong>&#x8BC4;&#x5206;&#x516C;&#x5F0F;</strong>
+<script type="math/tex; ">
+  pred(u,i)=\hat{r}_{ui}=\cfrac{\sum_{v\in U}sim(u,v)*r_{vi}}{\sum_{v\in U}|sim(u,v)|}
+  </script></p>
+<pre><code class="lang-python"><span class="hljs-comment"># 1. &#x627E;&#x51FA;uid&#x7528;&#x6237;&#x7684;&#x76F8;&#x4F3C;&#x7528;&#x6237;</span>
+similar_users = user_similar[<span class="hljs-number">1</span>].drop([<span class="hljs-number">1</span>]).dropna()
+<span class="hljs-comment"># &#x76F8;&#x4F3C;&#x7528;&#x6237;&#x7B5B;&#x9009;&#x89C4;&#x5219;&#xFF1A;&#x6B63;&#x76F8;&#x5173;&#x7684;&#x7528;&#x6237;</span>
+similar_users = similar_users.where(similar_users&gt;<span class="hljs-number">0</span>).dropna()
+<span class="hljs-comment"># 2. &#x4ECE;&#x7528;&#x6237;1&#x7684;&#x8FD1;&#x90BB;&#x76F8;&#x4F3C;&#x7528;&#x6237;&#x4E2D;&#x7B5B;&#x9009;&#x51FA;&#x5BF9;&#x7269;&#x54C1;1&#x6709;&#x8BC4;&#x5206;&#x8BB0;&#x5F55;&#x7684;&#x8FD1;&#x90BB;&#x7528;&#x6237;</span>
+ids = set(ratings_matrix[<span class="hljs-number">1</span>].dropna().index)&amp;set(similar_users.index)
+finally_similar_users = similar_users.ix[list(<span class="hljs-number">1</span>)]
+<span class="hljs-comment"># 3. &#x7ED3;&#x5408;uid&#x7528;&#x6237;&#x4E0E;&#x5176;&#x8FD1;&#x90BB;&#x7528;&#x6237;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;&#x9884;&#x6D4B;uid&#x7528;&#x6237;&#x5BF9;iid&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;</span>
+numerator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x5B50;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+denominator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x6BCD;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+<span class="hljs-keyword">for</span> sim_uid, similarity <span class="hljs-keyword">in</span> finally_similar_users.iteritems():
+    <span class="hljs-comment"># &#x8FD1;&#x90BB;&#x7528;&#x6237;&#x7684;&#x8BC4;&#x5206;&#x6570;&#x636E;</span>
+    sim_user_rated_movies = ratings_matrix.ix[sim_uid].dropna()
+    <span class="hljs-comment"># &#x8FD1;&#x90BB;&#x7528;&#x6237;&#x5BF9;iid&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;</span>
+    sim_user_rating_for_item = sim_user_rated_movies[<span class="hljs-number">1</span>]
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x5B50;&#x7684;&#x503C;</span>
+    numerator += similarity * sim_user_rating_for_item
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x6BCD;&#x7684;&#x503C;</span>
+    denominator += similarity
+<span class="hljs-comment"># 4 &#x8BA1;&#x7B97;&#x9884;&#x6D4B;&#x7684;&#x8BC4;&#x5206;&#x503C;</span>
+predict_rating = numerator/denominator
+print(<span class="hljs-string">&quot;&#x9884;&#x6D4B;&#x51FA;&#x7528;&#x6237;&lt;%d&gt;&#x5BF9;&#x7535;&#x5F71;&lt;%d&gt;&#x7684;&#x8BC4;&#x5206;&#xFF1A;%0.2f&quot;</span> % (<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, predict_rating))
+</code></pre>
+</li>
+<li><p>&#x5C01;&#x88C5;&#x6210;&#x65B9;&#x6CD5; &#x9884;&#x6D4B;&#x4EFB;&#x610F;&#x7528;&#x6237;&#x5BF9;&#x4EFB;&#x610F;&#x7535;&#x5F71;&#x7684;&#x8BC4;&#x5206;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span><span class="hljs-params">(uid, iid, ratings_matrix, user_similar)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    &#x9884;&#x6D4B;&#x7ED9;&#x5B9A;&#x7528;&#x6237;&#x5BF9;&#x7ED9;&#x5B9A;&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;&#x503C;
+    :param uid: &#x7528;&#x6237;ID
+    :param iid: &#x7269;&#x54C1;ID
+    :param ratings_matrix: &#x7528;&#x6237;-&#x7269;&#x54C1;&#x8BC4;&#x5206;&#x77E9;&#x9635;
+    :param user_similar: &#x7528;&#x6237;&#x4E24;&#x4E24;&#x76F8;&#x4F3C;&#x5EA6;&#x77E9;&#x9635;
+    :return: &#x9884;&#x6D4B;&#x7684;&#x8BC4;&#x5206;&#x503C;
+    &apos;&apos;&apos;</span>
+    print(<span class="hljs-string">&quot;&#x5F00;&#x59CB;&#x9884;&#x6D4B;&#x7528;&#x6237;&lt;%d&gt;&#x5BF9;&#x7535;&#x5F71;&lt;%d&gt;&#x7684;&#x8BC4;&#x5206;...&quot;</span>%(uid, iid))
+    <span class="hljs-comment"># 1. &#x627E;&#x51FA;uid&#x7528;&#x6237;&#x7684;&#x76F8;&#x4F3C;&#x7528;&#x6237;</span>
+    similar_users = user_similar[uid].drop([uid]).dropna()
+    <span class="hljs-comment"># &#x76F8;&#x4F3C;&#x7528;&#x6237;&#x7B5B;&#x9009;&#x89C4;&#x5219;&#xFF1A;&#x6B63;&#x76F8;&#x5173;&#x7684;&#x7528;&#x6237;</span>
+    similar_users = similar_users.where(similar_users&gt;<span class="hljs-number">0</span>).dropna()
+    <span class="hljs-keyword">if</span> similar_users.empty <span class="hljs-keyword">is</span> <span class="hljs-keyword">True</span>:
+        <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;&#x7528;&#x6237;&lt;%d&gt;&#x6CA1;&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x7528;&#x6237;&quot;</span> % uid)
+
+    <span class="hljs-comment"># 2. &#x4ECE;uid&#x7528;&#x6237;&#x7684;&#x8FD1;&#x90BB;&#x76F8;&#x4F3C;&#x7528;&#x6237;&#x4E2D;&#x7B5B;&#x9009;&#x51FA;&#x5BF9;iid&#x7269;&#x54C1;&#x6709;&#x8BC4;&#x5206;&#x8BB0;&#x5F55;&#x7684;&#x8FD1;&#x90BB;&#x7528;&#x6237;</span>
+    ids = set(ratings_matrix[iid].dropna().index)&amp;set(similar_users.index)
+    finally_similar_users = similar_users.ix[list(ids)]
+
+    <span class="hljs-comment"># 3. &#x7ED3;&#x5408;uid&#x7528;&#x6237;&#x4E0E;&#x5176;&#x8FD1;&#x90BB;&#x7528;&#x6237;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;&#x9884;&#x6D4B;uid&#x7528;&#x6237;&#x5BF9;iid&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;</span>
+    numerator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x5B50;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+    denominator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x6BCD;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+    <span class="hljs-keyword">for</span> sim_uid, similarity <span class="hljs-keyword">in</span> finally_similar_users.iteritems():
+        <span class="hljs-comment"># &#x8FD1;&#x90BB;&#x7528;&#x6237;&#x7684;&#x8BC4;&#x5206;&#x6570;&#x636E;</span>
+        sim_user_rated_movies = ratings_matrix.ix[sim_uid].dropna()
+        <span class="hljs-comment"># &#x8FD1;&#x90BB;&#x7528;&#x6237;&#x5BF9;iid&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;</span>
+        sim_user_rating_for_item = sim_user_rated_movies[iid]
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x5B50;&#x7684;&#x503C;</span>
+        numerator += similarity * sim_user_rating_for_item
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x6BCD;&#x7684;&#x503C;</span>
+        denominator += similarity
+
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x9884;&#x6D4B;&#x7684;&#x8BC4;&#x5206;&#x503C;&#x5E76;&#x8FD4;&#x56DE;</span>
+    predict_rating = numerator/denominator
+    print(<span class="hljs-string">&quot;&#x9884;&#x6D4B;&#x51FA;&#x7528;&#x6237;&lt;%d&gt;&#x5BF9;&#x7535;&#x5F71;&lt;%d&gt;&#x7684;&#x8BC4;&#x5206;&#xFF1A;%0.2f&quot;</span> % (uid, iid, predict_rating))
+    <span class="hljs-keyword">return</span> round(predict_rating, <span class="hljs-number">2</span>)
+</code></pre>
+</li>
+<li><p>&#x4E3A;&#x67D0;&#x4E00;&#x7528;&#x6237;&#x9884;&#x6D4B;&#x6240;&#x6709;&#x7535;&#x5F71;&#x8BC4;&#x5206;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict_all</span><span class="hljs-params">(uid, ratings_matrix, user_similar)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    &#x9884;&#x6D4B;&#x5168;&#x90E8;&#x8BC4;&#x5206;
+    :param uid: &#x7528;&#x6237;id
+    :param ratings_matrix: &#x7528;&#x6237;-&#x7269;&#x54C1;&#x6253;&#x5206;&#x77E9;&#x9635;
+    :param user_similar: &#x7528;&#x6237;&#x4E24;&#x4E24;&#x95F4;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;
+    :return: &#x751F;&#x6210;&#x5668;&#xFF0C;&#x9010;&#x4E2A;&#x8FD4;&#x56DE;&#x9884;&#x6D4B;&#x8BC4;&#x5206;
+    &apos;&apos;&apos;</span>
+    <span class="hljs-comment"># &#x51C6;&#x5907;&#x8981;&#x9884;&#x6D4B;&#x7684;&#x7269;&#x54C1;&#x7684;id&#x5217;&#x8868;</span>
+    item_ids = ratings_matrix.columns
+    <span class="hljs-comment"># &#x9010;&#x4E2A;&#x9884;&#x6D4B;</span>
+    <span class="hljs-keyword">for</span> iid <span class="hljs-keyword">in</span> item_ids:
+        <span class="hljs-keyword">try</span>:
+            rating = predict(uid, iid, ratings_matrix, user_similar)
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            print(e)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">yield</span> uid, iid, rating
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> predict_all(<span class="hljs-number">1</span>, ratings_matrix, user_similar):
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+</li>
+<li><p>&#x6839;&#x636E;&#x8BC4;&#x5206;&#x4E3A;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x63A8;&#x8350;topN&#x4E2A;&#x7535;&#x5F71;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">top_k_rs_result</span><span class="hljs-params">(k)</span>:</span>
+    results = predict_all(<span class="hljs-number">1</span>, ratings_matrix, user_similar)
+    <span class="hljs-keyword">return</span> sorted(results, key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">2</span>], reverse=<span class="hljs-keyword">True</span>)[:k]
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
+    result = top_k_rs_result(<span class="hljs-number">20</span>)
+    pprint(result)
+</code></pre>
+</li>
+</ul>
+<h3 id="2-item-based-cf-&#x9884;&#x6D4B;&#x7535;&#x5F71;&#x8BC4;&#x5206;">2 Item-Based CF &#x9884;&#x6D4B;&#x7535;&#x5F71;&#x8BC4;&#x5206;</h3>
+<ul>
+<li><p>&#x52A0;&#x8F7D;ratings.csv&#xFF0C;&#x8F6C;&#x6362;&#x4E3A;&#x7528;&#x6237;-&#x7535;&#x5F71;&#x8BC4;&#x5206;&#x77E9;&#x9635;&#x5E76;&#x8BA1;&#x7B97;&#x7528;&#x6237;&#x4E4B;&#x95F4;&#x76F8;&#x4F3C;&#x5EA6;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+DATA_PATH = <span class="hljs-string">&quot;./datasets/ml-latest-small/ratings.csv&quot;</span>
+
+dtype = {<span class="hljs-string">&quot;userId&quot;</span>: np.int32, <span class="hljs-string">&quot;movieId&quot;</span>: np.int32, <span class="hljs-string">&quot;rating&quot;</span>: np.float32}
+<span class="hljs-comment"># &#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x7528;&#x524D;&#x4E09;&#x5217;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x7528;&#x6237;ID&#xFF0C;&#x7535;&#x5F71;ID&#xFF0C;&#x5DF2;&#x7ECF;&#x7528;&#x6237;&#x5BF9;&#x7535;&#x5F71;&#x7684;&#x5BF9;&#x5E94;&#x8BC4;&#x5206;</span>
+ratings = pd.read_csv(data_path, dtype=dtype, usecols=range(<span class="hljs-number">3</span>))
+<span class="hljs-comment"># &#x900F;&#x89C6;&#x8868;&#xFF0C;&#x5C06;&#x7535;&#x5F71;ID&#x8F6C;&#x6362;&#x4E3A;&#x5217;&#x540D;&#x79F0;&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;User-Movie&#x7684;&#x8BC4;&#x5206;&#x77E9;&#x9635;</span>
+ratings_matrix = ratings.pivot_table(index=[<span class="hljs-string">&quot;userId&quot;</span>], columns=[<span class="hljs-string">&quot;movieId&quot;</span>],values=<span class="hljs-string">&quot;rating&quot;</span>)
+<span class="hljs-comment">#&#x8BA1;&#x7B97;&#x7528;&#x6237;&#x4E4B;&#x95F4;&#x76F8;&#x4F3C;&#x5EA6;</span>
+item_similar = ratings_matrix.corr()
+</code></pre>
+</li>
+<li><p>&#x9884;&#x6D4B;&#x7528;&#x6237;&#x5BF9;&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206; &#xFF08;&#x4EE5;&#x7528;&#x6237;1&#x5BF9;&#x7535;&#x5F71;1&#x8BC4;&#x5206;&#x4E3A;&#x4F8B;&#xFF09;</p>
+<p><strong>&#x8BC4;&#x5206;&#x516C;&#x5F0F;</strong>
+<script type="math/tex; ">
+  pred(u,i)=\hat{r}_{ui}=\cfrac{\sum_{v\in U}sim(u,v)*r_{vi}}{\sum_{v\in U}|sim(u,v)|}
+  </script></p>
+<pre><code class="lang-python"><span class="hljs-comment"># 1. &#x627E;&#x51FA;iid&#x7269;&#x54C1;&#x7684;&#x76F8;&#x4F3C;&#x7269;&#x54C1;</span>
+similar_items = item_similar[<span class="hljs-number">1</span>].drop([<span class="hljs-number">1</span>]).dropna()
+<span class="hljs-comment"># &#x76F8;&#x4F3C;&#x7269;&#x54C1;&#x7B5B;&#x9009;&#x89C4;&#x5219;&#xFF1A;&#x6B63;&#x76F8;&#x5173;&#x7684;&#x7269;&#x54C1;</span>
+similar_items = similar_items.where(similar_items&gt;<span class="hljs-number">0</span>).dropna()
+<span class="hljs-comment"># 2. &#x4ECE;iid&#x7269;&#x54C1;&#x7684;&#x8FD1;&#x90BB;&#x76F8;&#x4F3C;&#x7269;&#x54C1;&#x4E2D;&#x7B5B;&#x9009;&#x51FA;uid&#x7528;&#x6237;&#x8BC4;&#x5206;&#x8FC7;&#x7684;&#x7269;&#x54C1;</span>
+ids = set(ratings_matrix.ix[<span class="hljs-number">1</span>].dropna().index)&amp;set(similar_items.index)
+finally_similar_items = similar_items.ix[list(ids)]
+
+<span class="hljs-comment"># 3. &#x7ED3;&#x5408;iid&#x7269;&#x54C1;&#x4E0E;&#x5176;&#x76F8;&#x4F3C;&#x7269;&#x54C1;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;&#x548C;uid&#x7528;&#x6237;&#x5BF9;&#x5176;&#x76F8;&#x4F3C;&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;&#xFF0C;&#x9884;&#x6D4B;uid&#x5BF9;iid&#x7684;&#x8BC4;&#x5206;</span>
+numerator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x5B50;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+denominator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x6BCD;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+<span class="hljs-keyword">for</span> sim_iid, similarity <span class="hljs-keyword">in</span> finally_similar_items.iteritems():
+    <span class="hljs-comment"># &#x8FD1;&#x90BB;&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;&#x6570;&#x636E;</span>
+    sim_item_rated_movies = ratings_matrix[sim_iid].dropna()
+    <span class="hljs-comment"># 1&#x7528;&#x6237;&#x5BF9;&#x76F8;&#x4F3C;&#x7269;&#x54C1;&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;</span>
+    sim_item_rating_from_user = sim_item_rated_movies[<span class="hljs-number">1</span>]
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x5B50;&#x7684;&#x503C;</span>
+    numerator += similarity * sim_item_rating_from_user
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x6BCD;&#x7684;&#x503C;</span>
+    denominator += similarity
+
+<span class="hljs-comment"># &#x8BA1;&#x7B97;&#x9884;&#x6D4B;&#x7684;&#x8BC4;&#x5206;&#x503C;&#x5E76;&#x8FD4;&#x56DE;</span>
+predict_rating = sum_up/sum_down
+print(<span class="hljs-string">&quot;&#x9884;&#x6D4B;&#x51FA;&#x7528;&#x6237;&lt;%d&gt;&#x5BF9;&#x7535;&#x5F71;&lt;%d&gt;&#x7684;&#x8BC4;&#x5206;&#xFF1A;%0.2f&quot;</span> % (uid, iid, predict_rating))
+</code></pre>
+</li>
+<li><p>&#x5C01;&#x88C5;&#x6210;&#x65B9;&#x6CD5; &#x9884;&#x6D4B;&#x4EFB;&#x610F;&#x7528;&#x6237;&#x5BF9;&#x4EFB;&#x610F;&#x7535;&#x5F71;&#x7684;&#x8BC4;&#x5206;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span><span class="hljs-params">(uid, iid, ratings_matrix, user_similar)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    &#x9884;&#x6D4B;&#x7ED9;&#x5B9A;&#x7528;&#x6237;&#x5BF9;&#x7ED9;&#x5B9A;&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;&#x503C;
+    :param uid: &#x7528;&#x6237;ID
+    :param iid: &#x7269;&#x54C1;ID
+    :param ratings_matrix: &#x7528;&#x6237;-&#x7269;&#x54C1;&#x8BC4;&#x5206;&#x77E9;&#x9635;
+    :param user_similar: &#x7528;&#x6237;&#x4E24;&#x4E24;&#x76F8;&#x4F3C;&#x5EA6;&#x77E9;&#x9635;
+    :return: &#x9884;&#x6D4B;&#x7684;&#x8BC4;&#x5206;&#x503C;
+    &apos;&apos;&apos;</span>
+    print(<span class="hljs-string">&quot;&#x5F00;&#x59CB;&#x9884;&#x6D4B;&#x7528;&#x6237;&lt;%d&gt;&#x5BF9;&#x7535;&#x5F71;&lt;%d&gt;&#x7684;&#x8BC4;&#x5206;...&quot;</span>%(uid, iid))
+    <span class="hljs-comment"># 1. &#x627E;&#x51FA;uid&#x7528;&#x6237;&#x7684;&#x76F8;&#x4F3C;&#x7528;&#x6237;</span>
+    similar_users = user_similar[uid].drop([uid]).dropna()
+    <span class="hljs-comment"># &#x76F8;&#x4F3C;&#x7528;&#x6237;&#x7B5B;&#x9009;&#x89C4;&#x5219;&#xFF1A;&#x6B63;&#x76F8;&#x5173;&#x7684;&#x7528;&#x6237;</span>
+    similar_users = similar_users.where(similar_users&gt;<span class="hljs-number">0</span>).dropna()
+    <span class="hljs-keyword">if</span> similar_users.empty <span class="hljs-keyword">is</span> <span class="hljs-keyword">True</span>:
+        <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;&#x7528;&#x6237;&lt;%d&gt;&#x6CA1;&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x7528;&#x6237;&quot;</span> % uid)
+
+    <span class="hljs-comment"># 2. &#x4ECE;uid&#x7528;&#x6237;&#x7684;&#x8FD1;&#x90BB;&#x76F8;&#x4F3C;&#x7528;&#x6237;&#x4E2D;&#x7B5B;&#x9009;&#x51FA;&#x5BF9;iid&#x7269;&#x54C1;&#x6709;&#x8BC4;&#x5206;&#x8BB0;&#x5F55;&#x7684;&#x8FD1;&#x90BB;&#x7528;&#x6237;</span>
+    ids = set(ratings_matrix[iid].dropna().index)&amp;set(similar_users.index)
+    finally_similar_users = similar_users.ix[list(ids)]
+
+    <span class="hljs-comment"># 3. &#x7ED3;&#x5408;uid&#x7528;&#x6237;&#x4E0E;&#x5176;&#x8FD1;&#x90BB;&#x7528;&#x6237;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;&#x9884;&#x6D4B;uid&#x7528;&#x6237;&#x5BF9;iid&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;</span>
+    numerator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x5B50;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+    denominator = <span class="hljs-number">0</span>    <span class="hljs-comment"># &#x8BC4;&#x5206;&#x9884;&#x6D4B;&#x516C;&#x5F0F;&#x7684;&#x5206;&#x6BCD;&#x90E8;&#x5206;&#x7684;&#x503C;</span>
+    <span class="hljs-keyword">for</span> sim_uid, similarity <span class="hljs-keyword">in</span> finally_similar_users.iteritems():
+        <span class="hljs-comment"># &#x8FD1;&#x90BB;&#x7528;&#x6237;&#x7684;&#x8BC4;&#x5206;&#x6570;&#x636E;</span>
+        sim_user_rated_movies = ratings_matrix.ix[sim_uid].dropna()
+        <span class="hljs-comment"># &#x8FD1;&#x90BB;&#x7528;&#x6237;&#x5BF9;iid&#x7269;&#x54C1;&#x7684;&#x8BC4;&#x5206;</span>
+        sim_user_rating_for_item = sim_user_rated_movies[iid]
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x5B50;&#x7684;&#x503C;</span>
+        numerator += similarity * sim_user_rating_for_item
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5206;&#x6BCD;&#x7684;&#x503C;</span>
+        denominator += similarity
+
+    <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x9884;&#x6D4B;&#x7684;&#x8BC4;&#x5206;&#x503C;&#x5E76;&#x8FD4;&#x56DE;</span>
+    predict_rating = numerator/denominator
+    print(<span class="hljs-string">&quot;&#x9884;&#x6D4B;&#x51FA;&#x7528;&#x6237;&lt;%d&gt;&#x5BF9;&#x7535;&#x5F71;&lt;%d&gt;&#x7684;&#x8BC4;&#x5206;&#xFF1A;%0.2f&quot;</span> % (uid, iid, predict_rating))
+    <span class="hljs-keyword">return</span> round(predict_rating, <span class="hljs-number">2</span>)
+</code></pre>
+</li>
+<li><p>&#x4E3A;&#x67D0;&#x4E00;&#x7528;&#x6237;&#x9884;&#x6D4B;&#x6240;&#x6709;&#x7535;&#x5F71;&#x8BC4;&#x5206;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict_all</span><span class="hljs-params">(uid, ratings_matrix, item_similar)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    &#x9884;&#x6D4B;&#x5168;&#x90E8;&#x8BC4;&#x5206;
+    :param uid: &#x7528;&#x6237;id
+    :param ratings_matrix: &#x7528;&#x6237;-&#x7269;&#x54C1;&#x6253;&#x5206;&#x77E9;&#x9635;
+    :param item_similar: &#x7269;&#x54C1;&#x4E24;&#x4E24;&#x95F4;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;
+    :return: &#x751F;&#x6210;&#x5668;&#xFF0C;&#x9010;&#x4E2A;&#x8FD4;&#x56DE;&#x9884;&#x6D4B;&#x8BC4;&#x5206;
+    &apos;&apos;&apos;</span>
+    <span class="hljs-comment"># &#x51C6;&#x5907;&#x8981;&#x9884;&#x6D4B;&#x7684;&#x7269;&#x54C1;&#x7684;id&#x5217;&#x8868;</span>
+    item_ids = ratings_matrix.columns
+    <span class="hljs-comment"># &#x9010;&#x4E2A;&#x9884;&#x6D4B;</span>
+    <span class="hljs-keyword">for</span> iid <span class="hljs-keyword">in</span> item_ids:
+        <span class="hljs-keyword">try</span>:
+            rating = predict(uid, iid, ratings_matrix, item_similar)
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            print(e)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">yield</span> uid, iid, rating
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> predict_all(<span class="hljs-number">1</span>, ratings_matrix, item_similar):
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+</li>
+<li><p>&#x6839;&#x636E;&#x8BC4;&#x5206;&#x4E3A;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x63A8;&#x8350;topN&#x4E2A;&#x7535;&#x5F71;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">top_k_rs_result</span><span class="hljs-params">(k)</span>:</span>
+    results = predict_all(<span class="hljs-number">1</span>, ratings_matrix, item_similar)
+    <span class="hljs-keyword">return</span> sorted(results, key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">2</span>], reverse=<span class="hljs-keyword">True</span>)[:k]
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-keyword">from</span> pprint <span class="hljs-keyword">import</span> pprint
+    result = top_k_rs_result(<span class="hljs-number">20</span>)
+    pprint(result)
+</code></pre>
+</li>
+</ul>
+<h3 id="3">3</h3>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="03_推荐算法.html" class="navigation navigation-prev " aria-label="Previous page: 1.3_推荐算法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="07_ 推荐系统评估.html" class="navigation navigation-next " aria-label="Next page: 1.5_推荐系统评估">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.4_案例--基于协同过滤的电影推荐","level":"2.4","depth":1,"next":{"title":"1.5_推荐系统评估","level":"2.5","depth":1,"path":"day01_推荐系统介绍/07_ 推荐系统评估.md","ref":"day01_推荐系统介绍/07_ 推荐系统评估.md","articles":[]},"previous":{"title":"1.3_推荐算法","level":"2.3","depth":1,"path":"day01_推荐系统介绍/03_推荐算法.md","ref":"day01_推荐系统介绍/03_推荐算法.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","expandable-chapters-small","splitter"],"pluginsConfig":{"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"day01_推荐系统介绍/04_案例--基于协同过滤的电影推荐.md","mtime":"2019-06-10T06:14:05.867Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-16T09:41:09.142Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

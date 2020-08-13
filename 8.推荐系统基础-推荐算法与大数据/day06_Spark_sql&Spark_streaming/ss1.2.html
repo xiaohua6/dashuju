@@ -1,0 +1,1147 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>06_Spark Streaming实现WordCount · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ss1.3.html" />
+    
+    
+    <link rel="prev" href="ss1.1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">一 推荐系统简介</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../day01_推荐系统介绍/01_推荐系统简介.html">
+            
+                <a href="../day01_推荐系统介绍/01_推荐系统简介.html">
+            
+                    
+                    1.1_推荐系统简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../day01_推荐系统介绍/02_推荐系统架构设计.html">
+            
+                <a href="../day01_推荐系统介绍/02_推荐系统架构设计.html">
+            
+                    
+                    1.2_推荐系统架构设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../day01_推荐系统介绍/03_推荐算法.html">
+            
+                <a href="../day01_推荐系统介绍/03_推荐算法.html">
+            
+                    
+                    1.3_推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../day01_推荐系统介绍/04_案例--基于协同过滤的电影推荐.html">
+            
+                <a href="../day01_推荐系统介绍/04_案例--基于协同过滤的电影推荐.html">
+            
+                    
+                    1.4_案例--基于协同过滤的电影推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../day01_推荐系统介绍/07_ 推荐系统评估.html">
+            
+                <a href="../day01_推荐系统介绍/07_ 推荐系统评估.html">
+            
+                    
+                    1.5_推荐系统评估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../day01_推荐系统介绍/08_ 推荐系统冷启动问题.html">
+            
+                <a href="../day01_推荐系统介绍/08_ 推荐系统冷启动问题.html">
+            
+                    
+                    1.6_推荐系统的冷启动问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">二 推荐系统算法</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../day02_推荐算法/01_基于模型的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/01_基于模型的协同过滤推荐.html">
+            
+                    
+                    2.1_基于模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../day02_推荐算法/03_基于回归模型的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/03_基于回归模型的协同过滤推荐.html">
+            
+                    
+                    2.2_基于回归模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../day02_推荐算法/04_基于矩阵分解的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/04_基于矩阵分解的协同过滤推荐.html">
+            
+                    
+                    2.3_基于矩阵分解的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../day02_推荐算法/05_LFM算法实现.html">
+            
+                <a href="../day02_推荐算法/05_LFM算法实现.html">
+            
+                    
+                    2.4_LFM算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../day02_推荐算法/06_BiasSVD算法实现.html">
+            
+                <a href="../day02_推荐算法/06_BiasSVD算法实现.html">
+            
+                    
+                    2.5_BiasSVD算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../day02_推荐算法/07_基于内容的推荐算法.html">
+            
+                <a href="../day02_推荐算法/07_基于内容的推荐算法.html">
+            
+                    
+                    2.6_基于内容的推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../day02_推荐算法/08_物品画像.html">
+            
+                <a href="../day02_推荐算法/08_物品画像.html">
+            
+                    
+                    2.7_电影推荐(ContentBased)物品画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../day02_推荐算法/09_用户画像.html">
+            
+                <a href="../day02_推荐算法/09_用户画像.html">
+            
+                    
+                    2.8_电影推荐(ContentBased)用户画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../day02_推荐算法/10_TOPN用户推荐.html">
+            
+                <a href="../day02_推荐算法/10_TOPN用户推荐.html">
+            
+                    
+                    2.9_电影推荐(ContentBased)TOP-N用户推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">三 Hadoop</li>
+        
+        
+    
+
+    
+        
+        <li class="header">3.1 Hadoop概述</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../day03_Hadoop/ha1.1.html">
+            
+                <a href="../day03_Hadoop/ha1.1.html">
+            
+                    
+                    01_什么是Hadoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../day03_Hadoop/ha1.2.html">
+            
+                <a href="../day03_Hadoop/ha1.2.html">
+            
+                    
+                    02_Hadoop核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../day03_Hadoop/ha1.3.html">
+            
+                <a href="../day03_Hadoop/ha1.3.html">
+            
+                    
+                    03_Hadoop优势
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.2 分布式文件系统HDFS</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../day03_Hadoop/ha2.1.html">
+            
+                <a href="../day03_Hadoop/ha2.1.html">
+            
+                    
+                    01_HDFS的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../day03_Hadoop/ha2.2.html">
+            
+                <a href="../day03_Hadoop/ha2.2.html">
+            
+                    
+                    02_HDFS Shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../day03_Hadoop/ha2.3.html">
+            
+                <a href="../day03_Hadoop/ha2.3.html">
+            
+                    
+                    03_HDFS设计思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../day03_Hadoop/ha2.4.html">
+            
+                <a href="../day03_Hadoop/ha2.4.html">
+            
+                    
+                    04_HDFS架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../day03_Hadoop/ha2.5.html">
+            
+                <a href="../day03_Hadoop/ha2.5.html">
+            
+                    
+                    05_HDFS环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.3 YARN&MapReduce</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../day03_Hadoop/ha3.1.html">
+            
+                <a href="../day03_Hadoop/ha3.1.html">
+            
+                    
+                    01_资源调度框架YARN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../day03_Hadoop/ha3.2.html">
+            
+                <a href="../day03_Hadoop/ha3.2.html">
+            
+                    
+                    02_分布式计算框架MapReduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../day03_Hadoop/ha3.3.html">
+            
+                <a href="../day03_Hadoop/ha3.3.html">
+            
+                    
+                    03_MapReduce实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../day03_Hadoop/ha3.5.html">
+            
+                <a href="../day03_Hadoop/ha3.5.html">
+            
+                    
+                    04_MapReduce原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.4 Hadoop概念扩展</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../day03_Hadoop/ha4.1.html">
+            
+                <a href="../day03_Hadoop/ha4.1.html">
+            
+                    
+                    01_Hadoop生态系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../day03_Hadoop/ha4.2.html">
+            
+                <a href="../day03_Hadoop/ha4.2.html">
+            
+                    
+                    02_HDFS读写流程&高可用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../day03_Hadoop/ha4.3.html">
+            
+                <a href="../day03_Hadoop/ha4.3.html">
+            
+                    
+                    03_Hadoop发行版选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">四 Hive</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Hive&HBase/01_hive介绍.html">
+            
+                <a href="../Hive&HBase/01_hive介绍.html">
+            
+                    
+                    01_Hive基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../Hive&HBase/02_hive的shell操作.html">
+            
+                <a href="../Hive&HBase/02_hive的shell操作.html">
+            
+                    
+                    02_Hive的shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../Hive&HBase/03_Hive的函数和自定义函数.html">
+            
+                <a href="../Hive&HBase/03_Hive的函数和自定义函数.html">
+            
+                    
+                    03_Hive的函数和自定义函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="../Hive&HBase/04_hive综合案例.html">
+            
+                <a href="../Hive&HBase/04_hive综合案例.html">
+            
+                    
+                    04_Hive综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">五 HBase</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Hive&HBase/05_hBase简介与环境部署.html">
+            
+                <a href="../Hive&HBase/05_hBase简介与环境部署.html">
+            
+                    
+                    01_HBase简介与环境部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../Hive&HBase/06_hbase数据模型.html">
+            
+                <a href="../Hive&HBase/06_hbase数据模型.html">
+            
+                    
+                    02_Hbase数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="../Hive&HBase/07_hbase的安装与shell操作.html">
+            
+                <a href="../Hive&HBase/07_hbase的安装与shell操作.html">
+            
+                    
+                    03_Hbase的安装与shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="../Hive&HBase/08_HappyBase操作HBase.html">
+            
+                <a href="../Hive&HBase/08_HappyBase操作HBase.html">
+            
+                    
+                    04_HappyBase操作HBase
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="../Hive&HBase/10_HBase组件.html">
+            
+                <a href="../Hive&HBase/10_HBase组件.html">
+            
+                    
+                    05_HBase组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">六 Spark Core</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../day05_Spark_core/spark_core_1.html">
+            
+                <a href="../day05_Spark_core/spark_core_1.html">
+            
+                    
+                    01_Spark入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../day05_Spark_core/spark_core_2.html">
+            
+                <a href="../day05_Spark_core/spark_core_2.html">
+            
+                    
+                    02_RDD概念介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../day05_Spark_core/spark_core_3.html">
+            
+                <a href="../day05_Spark_core/spark_core_3.html">
+            
+                    
+                    03_RDD常用算子练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../day05_Spark_core/spark_core_4.html">
+            
+                <a href="../day05_Spark_core/spark_core_4.html">
+            
+                    
+                    04_Spark-Core实战案例_pv&uv统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../day05_Spark_core/spark_core_5.html">
+            
+                <a href="../day05_Spark_core/spark_core_5.html">
+            
+                    
+                    05_Spark-Core实战_ip统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.6" data-path="../day05_Spark_core/spark_core_6.html">
+            
+                <a href="../day05_Spark_core/spark_core_6.html">
+            
+                    
+                    06_Spark安装部署&standalone模式介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">七 Spark SQL</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="s1.1.html">
+            
+                <a href="s1.1.html">
+            
+                    
+                    01_Spark SQL简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="s1.2.html">
+            
+                <a href="s1.2.html">
+            
+                    
+                    02_DataFrame介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" data-path="s1.3.html">
+            
+                <a href="s1.3.html">
+            
+                    
+                    03_Spark SQL 处理JSON数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.4" data-path="s1.4.html">
+            
+                <a href="s1.4.html">
+            
+                    
+                    04Spark SQL案例数据清洗
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">八 Spark Streaming</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="ss1.1.html">
+            
+                <a href="ss1.1.html">
+            
+                    
+                    05_Spark Streaming简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="13.2" data-path="ss1.2.html">
+            
+                <a href="ss1.2.html">
+            
+                    
+                    06_Spark Streaming实现WordCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.3" data-path="ss1.3.html">
+            
+                <a href="ss1.3.html">
+            
+                    
+                    07_Spark Steaming的状态操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">九 电商推荐案例</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                <a href="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                    
+                    01_个性化电商广告推荐系统介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                <a href="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                    
+                    02_根据用户行为数据创建ALS模型并召回商品
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.3" data-path="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                <a href="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                    
+                    03_CTR预估数据准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.4" data-path="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                <a href="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                    
+                    04_逻辑回归(LR)实现CTR预估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.5" data-path="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                <a href="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                    
+                    05_离线推荐处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.6" data-path="../day07_推荐系统案例/06_实时推荐.html">
+            
+                <a href="../day07_推荐系统案例/06_实时推荐.html">
+            
+                    
+                    06_实时推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >06_Spark Streaming实现WordCount</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="2&#x3001;spark-streaming&#x7F16;&#x7801;&#x5B9E;&#x8DF5;">2&#x3001;Spark Streaming&#x7F16;&#x7801;&#x5B9E;&#x8DF5;</h2>
+<p><strong>Spark Streaming&#x7F16;&#x7801;&#x6B65;&#x9AA4;&#xFF1A;</strong></p>
+<ul>
+<li>1&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;StreamingContext</li>
+<li>2&#xFF0C;&#x4ECE;StreamingContext&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5BF9;&#x8C61;</li>
+<li>3&#xFF0C;&#x5BF9;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;Transformations&#x64CD;&#x4F5C;</li>
+<li>4&#xFF0C;&#x8F93;&#x51FA;&#x7ED3;&#x679C;</li>
+<li>5&#xFF0C;&#x5F00;&#x59CB;&#x548C;&#x505C;&#x6B62;</li>
+</ul>
+<p><strong>&#x5229;&#x7528;Spark Streaming&#x5B9E;&#x73B0;WordCount</strong></p>
+<p>&#x9700;&#x6C42;&#xFF1A;&#x76D1;&#x542C;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#x4E0A;&#x7684;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#xFF0C;&#x5B9E;&#x65F6;&#x7EDF;&#x8BA1;&#x51FA;&#x73B0;&#x7684;&#x4E0D;&#x540C;&#x5355;&#x8BCD;&#x4E2A;&#x6570;&#x3002;</p>
+<p>1&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;nc&#x5DE5;&#x5177;&#xFF1A;sudo yum install -y nc</p>
+<p>2&#xFF0C;&#x6267;&#x884C;&#x6307;&#x4EE4;&#xFF1A;nc -lk 9999 -v</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-comment"># &#x914D;&#x7F6E;spark driver&#x548C;pyspark&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x6240;&#x4F7F;&#x7528;&#x7684;python&#x89E3;&#x91CA;&#x5668;&#x8DEF;&#x5F84;</span>
+PYSPARK_PYTHON = <span class="hljs-string">&quot;/miniconda2/envs/py365/bin/python&quot;</span>
+JAVA_HOME=<span class="hljs-string">&apos;/root/bigdata/jdk&apos;</span>
+SPARK_HOME = <span class="hljs-string">&quot;/root/bigdata/spark&quot;</span>
+<span class="hljs-comment"># &#x5F53;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x65F6;&#xFF0C;&#x4E0D;&#x6307;&#x5B9A;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x51FA;&#x9519;</span>
+os.environ[<span class="hljs-string">&quot;PYSPARK_PYTHON&quot;</span>] = PYSPARK_PYTHON
+os.environ[<span class="hljs-string">&quot;PYSPARK_DRIVER_PYTHON&quot;</span>] = PYSPARK_PYTHON
+os.environ[<span class="hljs-string">&apos;JAVA_HOME&apos;</span>]=JAVA_HOME
+os.environ[<span class="hljs-string">&quot;SPARK_HOME&quot;</span>] = SPARK_HOME
+
+<span class="hljs-keyword">from</span> pyspark <span class="hljs-keyword">import</span> SparkContext
+<span class="hljs-keyword">from</span> pyspark.streaming <span class="hljs-keyword">import</span> StreamingContext
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+
+    sc = SparkContext(<span class="hljs-string">&quot;local[2]&quot;</span>,appName=<span class="hljs-string">&quot;NetworkWordCount&quot;</span>)
+    <span class="hljs-comment">#&#x53C2;&#x6570;2&#xFF1A;&#x6307;&#x5B9A;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;</span>
+    ssc = StreamingContext(sc, <span class="hljs-number">1</span>)
+    <span class="hljs-comment">#&#x76D1;&#x542C;ip&#xFF0C;&#x7AEF;&#x53E3;&#x4E0A;&#x7684;&#x4E0A;&#x7684;&#x6570;&#x636E;</span>
+    lines = ssc.socketTextStream(<span class="hljs-string">&apos;localhost&apos;</span>,<span class="hljs-number">9999</span>)
+    <span class="hljs-comment">#&#x5C06;&#x6570;&#x636E;&#x6309;&#x7A7A;&#x683C;&#x8FDB;&#x884C;&#x62C6;&#x5206;&#x4E3A;&#x591A;&#x4E2A;&#x5355;&#x8BCD;</span>
+    words = lines.flatMap(<span class="hljs-keyword">lambda</span> line: line.split(<span class="hljs-string">&quot; &quot;</span>))
+    <span class="hljs-comment">#&#x5C06;&#x5355;&#x8BCD;&#x8F6C;&#x6362;&#x4E3A;(&#x5355;&#x8BCD;&#xFF0C;1)&#x7684;&#x5F62;&#x5F0F;</span>
+    pairs = words.map(<span class="hljs-keyword">lambda</span> word:(word,<span class="hljs-number">1</span>))
+    <span class="hljs-comment">#&#x7EDF;&#x8BA1;&#x5355;&#x8BCD;&#x4E2A;&#x6570;</span>
+    wordCounts = pairs.reduceByKey(<span class="hljs-keyword">lambda</span> x,y:x+y)
+    <span class="hljs-comment">#&#x6253;&#x5370;&#x7ED3;&#x679C;&#x4FE1;&#x606F;&#xFF0C;&#x4F1A;&#x4F7F;&#x5F97;&#x524D;&#x9762;&#x7684;transformation&#x64CD;&#x4F5C;&#x6267;&#x884C;</span>
+    wordCounts.pprint()
+    <span class="hljs-comment">#&#x542F;&#x52A8;StreamingContext</span>
+    ssc.start()
+    <span class="hljs-comment">#&#x7B49;&#x5F85;&#x8BA1;&#x7B97;&#x7ED3;&#x675F;</span>
+    ssc.awaitTermination()
+</code></pre>
+<p>&#x53EF;&#x89C6;&#x5316;&#x67E5;&#x770B;&#x6548;&#x679C;&#xFF1A;<a href="http://192.168.19.137:4040" target="_blank">http://192.168.19.137:4040</a></p>
+<p>&#x70B9;&#x51FB;streaming&#xFF0C;&#x67E5;&#x770B;&#x6548;&#x679C;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ss1.1.html" class="navigation navigation-prev " aria-label="Previous page: 05_Spark Streaming简介">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ss1.3.html" class="navigation navigation-next " aria-label="Next page: 07_Spark Steaming的状态操作">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"06_Spark Streaming实现WordCount","level":"13.2","depth":1,"next":{"title":"07_Spark Steaming的状态操作","level":"13.3","depth":1,"path":"day06_Spark_sql&Spark_streaming/ss1.3.md","ref":"day06_Spark_sql&Spark_streaming/ss1.3.md","articles":[]},"previous":{"title":"05_Spark Streaming简介","level":"13.1","depth":1,"path":"day06_Spark_sql&Spark_streaming/ss1.1.md","ref":"day06_Spark_sql&Spark_streaming/ss1.1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","expandable-chapters-small","splitter"],"pluginsConfig":{"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"day06_Spark_sql&Spark_streaming/ss1.2.md","mtime":"2019-06-11T10:35:40.637Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-16T09:41:09.142Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

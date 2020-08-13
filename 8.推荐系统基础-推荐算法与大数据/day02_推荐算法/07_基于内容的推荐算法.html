@@ -1,0 +1,1141 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.6_基于内容的推荐算法 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="08_物品画像.html" />
+    
+    
+    <link rel="prev" href="06_BiasSVD算法实现.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">一 推荐系统简介</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../day01_推荐系统介绍/01_推荐系统简介.html">
+            
+                <a href="../day01_推荐系统介绍/01_推荐系统简介.html">
+            
+                    
+                    1.1_推荐系统简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../day01_推荐系统介绍/02_推荐系统架构设计.html">
+            
+                <a href="../day01_推荐系统介绍/02_推荐系统架构设计.html">
+            
+                    
+                    1.2_推荐系统架构设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../day01_推荐系统介绍/03_推荐算法.html">
+            
+                <a href="../day01_推荐系统介绍/03_推荐算法.html">
+            
+                    
+                    1.3_推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../day01_推荐系统介绍/04_案例--基于协同过滤的电影推荐.html">
+            
+                <a href="../day01_推荐系统介绍/04_案例--基于协同过滤的电影推荐.html">
+            
+                    
+                    1.4_案例--基于协同过滤的电影推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../day01_推荐系统介绍/07_ 推荐系统评估.html">
+            
+                <a href="../day01_推荐系统介绍/07_ 推荐系统评估.html">
+            
+                    
+                    1.5_推荐系统评估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../day01_推荐系统介绍/08_ 推荐系统冷启动问题.html">
+            
+                <a href="../day01_推荐系统介绍/08_ 推荐系统冷启动问题.html">
+            
+                    
+                    1.6_推荐系统的冷启动问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">二 推荐系统算法</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="01_基于模型的协同过滤推荐.html">
+            
+                <a href="01_基于模型的协同过滤推荐.html">
+            
+                    
+                    2.1_基于模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="03_基于回归模型的协同过滤推荐.html">
+            
+                <a href="03_基于回归模型的协同过滤推荐.html">
+            
+                    
+                    2.2_基于回归模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="04_基于矩阵分解的协同过滤推荐.html">
+            
+                <a href="04_基于矩阵分解的协同过滤推荐.html">
+            
+                    
+                    2.3_基于矩阵分解的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="05_LFM算法实现.html">
+            
+                <a href="05_LFM算法实现.html">
+            
+                    
+                    2.4_LFM算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="06_BiasSVD算法实现.html">
+            
+                <a href="06_BiasSVD算法实现.html">
+            
+                    
+                    2.5_BiasSVD算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.6" data-path="07_基于内容的推荐算法.html">
+            
+                <a href="07_基于内容的推荐算法.html">
+            
+                    
+                    2.6_基于内容的推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="08_物品画像.html">
+            
+                <a href="08_物品画像.html">
+            
+                    
+                    2.7_电影推荐(ContentBased)物品画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="09_用户画像.html">
+            
+                <a href="09_用户画像.html">
+            
+                    
+                    2.8_电影推荐(ContentBased)用户画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="10_TOPN用户推荐.html">
+            
+                <a href="10_TOPN用户推荐.html">
+            
+                    
+                    2.9_电影推荐(ContentBased)TOP-N用户推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">三 Hadoop</li>
+        
+        
+    
+
+    
+        
+        <li class="header">3.1 Hadoop概述</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../day03_Hadoop/ha1.1.html">
+            
+                <a href="../day03_Hadoop/ha1.1.html">
+            
+                    
+                    01_什么是Hadoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../day03_Hadoop/ha1.2.html">
+            
+                <a href="../day03_Hadoop/ha1.2.html">
+            
+                    
+                    02_Hadoop核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../day03_Hadoop/ha1.3.html">
+            
+                <a href="../day03_Hadoop/ha1.3.html">
+            
+                    
+                    03_Hadoop优势
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.2 分布式文件系统HDFS</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../day03_Hadoop/ha2.1.html">
+            
+                <a href="../day03_Hadoop/ha2.1.html">
+            
+                    
+                    01_HDFS的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../day03_Hadoop/ha2.2.html">
+            
+                <a href="../day03_Hadoop/ha2.2.html">
+            
+                    
+                    02_HDFS Shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../day03_Hadoop/ha2.3.html">
+            
+                <a href="../day03_Hadoop/ha2.3.html">
+            
+                    
+                    03_HDFS设计思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../day03_Hadoop/ha2.4.html">
+            
+                <a href="../day03_Hadoop/ha2.4.html">
+            
+                    
+                    04_HDFS架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../day03_Hadoop/ha2.5.html">
+            
+                <a href="../day03_Hadoop/ha2.5.html">
+            
+                    
+                    05_HDFS环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.3 YARN&MapReduce</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../day03_Hadoop/ha3.1.html">
+            
+                <a href="../day03_Hadoop/ha3.1.html">
+            
+                    
+                    01_资源调度框架YARN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../day03_Hadoop/ha3.2.html">
+            
+                <a href="../day03_Hadoop/ha3.2.html">
+            
+                    
+                    02_分布式计算框架MapReduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../day03_Hadoop/ha3.3.html">
+            
+                <a href="../day03_Hadoop/ha3.3.html">
+            
+                    
+                    03_MapReduce实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../day03_Hadoop/ha3.5.html">
+            
+                <a href="../day03_Hadoop/ha3.5.html">
+            
+                    
+                    04_MapReduce原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.4 Hadoop概念扩展</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../day03_Hadoop/ha4.1.html">
+            
+                <a href="../day03_Hadoop/ha4.1.html">
+            
+                    
+                    01_Hadoop生态系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../day03_Hadoop/ha4.2.html">
+            
+                <a href="../day03_Hadoop/ha4.2.html">
+            
+                    
+                    02_HDFS读写流程&高可用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../day03_Hadoop/ha4.3.html">
+            
+                <a href="../day03_Hadoop/ha4.3.html">
+            
+                    
+                    03_Hadoop发行版选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">四 Hive</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../Hive&HBase/01_hive介绍.html">
+            
+                <a href="../Hive&HBase/01_hive介绍.html">
+            
+                    
+                    01_Hive基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../Hive&HBase/02_hive的shell操作.html">
+            
+                <a href="../Hive&HBase/02_hive的shell操作.html">
+            
+                    
+                    02_Hive的shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="../Hive&HBase/03_Hive的函数和自定义函数.html">
+            
+                <a href="../Hive&HBase/03_Hive的函数和自定义函数.html">
+            
+                    
+                    03_Hive的函数和自定义函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="../Hive&HBase/04_hive综合案例.html">
+            
+                <a href="../Hive&HBase/04_hive综合案例.html">
+            
+                    
+                    04_Hive综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">五 HBase</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../Hive&HBase/05_hBase简介与环境部署.html">
+            
+                <a href="../Hive&HBase/05_hBase简介与环境部署.html">
+            
+                    
+                    01_HBase简介与环境部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../Hive&HBase/06_hbase数据模型.html">
+            
+                <a href="../Hive&HBase/06_hbase数据模型.html">
+            
+                    
+                    02_Hbase数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="../Hive&HBase/07_hbase的安装与shell操作.html">
+            
+                <a href="../Hive&HBase/07_hbase的安装与shell操作.html">
+            
+                    
+                    03_Hbase的安装与shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="../Hive&HBase/08_HappyBase操作HBase.html">
+            
+                <a href="../Hive&HBase/08_HappyBase操作HBase.html">
+            
+                    
+                    04_HappyBase操作HBase
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="../Hive&HBase/10_HBase组件.html">
+            
+                <a href="../Hive&HBase/10_HBase组件.html">
+            
+                    
+                    05_HBase组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">六 Spark Core</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../day05_Spark_core/spark_core_1.html">
+            
+                <a href="../day05_Spark_core/spark_core_1.html">
+            
+                    
+                    01_Spark入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../day05_Spark_core/spark_core_2.html">
+            
+                <a href="../day05_Spark_core/spark_core_2.html">
+            
+                    
+                    02_RDD概念介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../day05_Spark_core/spark_core_3.html">
+            
+                <a href="../day05_Spark_core/spark_core_3.html">
+            
+                    
+                    03_RDD常用算子练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../day05_Spark_core/spark_core_4.html">
+            
+                <a href="../day05_Spark_core/spark_core_4.html">
+            
+                    
+                    04_Spark-Core实战案例_pv&uv统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../day05_Spark_core/spark_core_5.html">
+            
+                <a href="../day05_Spark_core/spark_core_5.html">
+            
+                    
+                    05_Spark-Core实战_ip统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.6" data-path="../day05_Spark_core/spark_core_6.html">
+            
+                <a href="../day05_Spark_core/spark_core_6.html">
+            
+                    
+                    06_Spark安装部署&standalone模式介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">七 Spark SQL</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../day06_Spark_sql&Spark_streaming/s1.1.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.1.html">
+            
+                    
+                    01_Spark SQL简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../day06_Spark_sql&Spark_streaming/s1.2.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.2.html">
+            
+                    
+                    02_DataFrame介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" data-path="../day06_Spark_sql&Spark_streaming/s1.3.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.3.html">
+            
+                    
+                    03_Spark SQL 处理JSON数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.4" data-path="../day06_Spark_sql&Spark_streaming/s1.4.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.4.html">
+            
+                    
+                    04Spark SQL案例数据清洗
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">八 Spark Streaming</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../day06_Spark_sql&Spark_streaming/ss1.1.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.1.html">
+            
+                    
+                    05_Spark Streaming简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="../day06_Spark_sql&Spark_streaming/ss1.2.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.2.html">
+            
+                    
+                    06_Spark Streaming实现WordCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.3" data-path="../day06_Spark_sql&Spark_streaming/ss1.3.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.3.html">
+            
+                    
+                    07_Spark Steaming的状态操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">九 电商推荐案例</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                <a href="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                    
+                    01_个性化电商广告推荐系统介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                <a href="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                    
+                    02_根据用户行为数据创建ALS模型并召回商品
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.3" data-path="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                <a href="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                    
+                    03_CTR预估数据准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.4" data-path="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                <a href="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                    
+                    04_逻辑回归(LR)实现CTR预估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.5" data-path="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                <a href="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                    
+                    05_离线推荐处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.6" data-path="../day07_推荐系统案例/06_实时推荐.html">
+            
+                <a href="../day07_推荐系统案例/06_实时推荐.html">
+            
+                    
+                    06_实时推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.6_基于内容的推荐算法</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x7684;&#x63A8;&#x8350;&#x7B97;&#x6CD5;&#xFF08;content-based&#xFF09;">&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x7684;&#x63A8;&#x8350;&#x7B97;&#x6CD5;&#xFF08;Content-Based&#xFF09;</h2>
+<h4 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h4>
+<p>&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x7684;&#x63A8;&#x8350;&#x65B9;&#x6CD5;&#x662F;&#x975E;&#x5E38;&#x76F4;&#x63A5;&#x7684;&#xFF0C;&#x5B83;&#x4EE5;&#x7269;&#x54C1;&#x7684;&#x5185;&#x5BB9;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#x4E3A;&#x4F9D;&#x636E;&#x6765;&#x505A;&#x51FA;&#x7684;&#x63A8;&#x8350;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x57FA;&#x4E8E;&#x5BF9;&#x7269;&#x54C1;&#x548C;&#x7528;&#x6237;&#x81EA;&#x8EAB;&#x7684;&#x7279;&#x5F81;&#x6216;&#x5C5E;&#x6027;&#x7684;&#x76F4;&#x63A5;&#x5206;&#x6790;&#x548C;&#x8BA1;&#x7B97;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x8BBE;&#x5DF2;&#x77E5;&#x7535;&#x5F71;A&#x662F;&#x4E00;&#x90E8;&#x559C;&#x5267;&#xFF0C;&#x800C;&#x6070;&#x5DE7;&#x6211;&#x4EEC;&#x5F97;&#x77E5;&#x67D0;&#x4E2A;&#x7528;&#x6237;&#x559C;&#x6B22;&#x770B;&#x559C;&#x5267;&#x7535;&#x5F71;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x57FA;&#x4E8E;&#x8FD9;&#x6837;&#x7684;&#x5DF2;&#x77E5;&#x4FE1;&#x606F;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x7535;&#x5F71;A&#x63A8;&#x8350;&#x7ED9;&#x8BE5;&#x7528;&#x6237;&#x3002;</p>
+<h4 id="&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x7684;&#x63A8;&#x8350;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;">&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x7684;&#x63A8;&#x8350;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;</h4>
+<ul>
+<li><p><strong>&#x753B;&#x50CF;&#x6784;&#x5EFA;</strong>&#x3002;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x753B;&#x50CF;&#x5C31;&#x662F;&#x523B;&#x753B;&#x7269;&#x54C1;&#x6216;&#x7528;&#x6237;&#x7684;&#x7279;&#x5F81;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x7ED9;&#x7528;&#x6237;&#x6216;&#x7269;&#x54C1;&#x8D34;&#x6807;&#x7B7E;&#x3002;</p>
+<ul>
+<li><p><strong>&#x7269;&#x54C1;&#x753B;&#x50CF;</strong>&#xFF1A;&#x4F8B;&#x5982;&#x7ED9;&#x7535;&#x5F71;&#x300A;&#x6218;&#x72FC;2&#x300B;&#x8D34;&#x6807;&#x7B7E;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</p>
+<p><img src="img/&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x63A8;&#x8350;1.png" alt=""></p>
+<p>&quot;&#x52A8;&#x4F5C;&quot;&#x3001;&quot;&#x5434;&#x4EAC;&quot;&#x3001;&quot;&#x5434;&#x521A;&quot;&#x3001;&quot;&#x5F20;&#x7FF0;&quot;&#x3001;&quot;&#x5927;&#x9646;&#x7535;&#x5F71;&quot;&#x3001;&quot;&#x56FD;&#x4EA7;&quot;&#x3001;&quot;&#x7231;&#x56FD;&quot;&#x3001;&quot;&#x519B;&#x4E8B;&quot;&#x7B49;&#x7B49;&#x4E00;&#x7CFB;&#x5217;&#x6807;&#x7B7E;&#x662F;&#x4E0D;&#x662F;&#x90FD;&#x53EF;&#x4EE5;&#x8D34;&#x4E0A;</p>
+</li>
+<li><p><strong>&#x7528;&#x6237;&#x753B;&#x50CF;</strong>&#xFF1A;&#x4F8B;&#x5982;&#x5DF2;&#x77E5;&#x7528;&#x6237;&#x7684;&#x89C2;&#x5F71;&#x5386;&#x53F2;&#x662F;&#xFF1A;&quot;&#x300A;&#x6218;&#x72FC;1&#x300B;&quot;&#x3001;&quot;&#x300A;&#x6218;&#x72FC;2&#x300B;&quot;&#x3001;&quot;&#x300A;&#x5EFA;&#x515A;&#x4F1F;&#x4E1A;&#x300B;&quot;&#x3001;&quot;&#x300A;&#x5EFA;&#x519B;&#x5927;&#x4E1A;&#x300B;&quot;&#x3001;&quot;&#x300A;&#x5EFA;&#x56FD;&#x5927;&#x4E1A;&#x300B;&quot;&#x3001;&quot;&#x300A;&#x7EA2;&#x6D77;&#x884C;&#x52A8;&#x300B;&quot;&#x3001;&quot;&#x300A;&#x901F;&#x5EA6;&#x4E0E;&#x6FC0;&#x60C5;1-8&#x300B;&quot;&#x7B49;&#xFF0C;&#x6211;&#x4EEC;&#x662F;&#x4E0D;&#x662F;&#x5C31;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x51FA;&#x8BE5;&#x7528;&#x6237;&#x7684;&#x4E00;&#x4E9B;&#x5174;&#x8DA3;&#x7279;&#x5F81;&#x5982;&#xFF1A;&quot;&#x7231;&#x56FD;&quot;&#x3001;&quot;&#x6218;&#x4E89;&quot;&#x3001;&quot;&#x8D5B;&#x8F66;&quot;&#x3001;&quot;&#x52A8;&#x4F5C;&quot;&#x3001;&quot;&#x519B;&#x4E8B;&quot;&#x3001;&quot;&#x5434;&#x4EAC;&quot;&#x3001;&quot;&#x97E9;&#x4E09;&#x5E73;&quot;&#x7B49;&#x6807;&#x7B7E;&#x3002;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="&#x95EE;&#x9898;&#xFF1A;&#x7269;&#x54C1;&#x7684;&#x6807;&#x7B7E;&#x6765;&#x81EA;&#x54EA;&#x513F;&#xFF1F;">&#x95EE;&#x9898;&#xFF1A;&#x7269;&#x54C1;&#x7684;&#x6807;&#x7B7E;&#x6765;&#x81EA;&#x54EA;&#x513F;&#xFF1F;</h6>
+<ol>
+<li>PGC    &#x7269;&#x54C1;&#x753B;&#x50CF;--&#x51B7;&#x542F;&#x52A8;<ul>
+<li>&#x7269;&#x54C1;&#x81EA;&#x5E26;&#x7684;&#x5C5E;&#x6027;&#xFF08;&#x7269;&#x54C1;&#x4E00;&#x4EA7;&#x751F;&#x5C31;&#x5177;&#x5907;&#x7684;&#xFF09;&#xFF1A;&#x5982;&#x7535;&#x5F71;&#x7684;&#x6807;&#x9898;&#x3001;&#x5BFC;&#x6F14;&#x3001;&#x6F14;&#x5458;&#x3001;&#x7C7B;&#x578B;&#x7B49;&#x7B49;</li>
+<li>&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x65B9;&#x8BBE;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#xFF08;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x65B9;&#x4E3A;&#x7269;&#x54C1;&#x9644;&#x52A0;&#x7684;&#x5C5E;&#x6027;&#xFF09;&#xFF1A;&#x5982;&#x77ED;&#x89C6;&#x9891;&#x8BDD;&#x9898;&#x3001;&#x5FAE;&#x535A;&#x8BDD;&#x9898;&#xFF08;&#x5E73;&#x53F0;&#x62DF;&#x5B9A;&#xFF09;</li>
+<li>&#x5176;&#x4ED6;&#x6E20;&#x9053;&#xFF1A;&#x5982;&#x722C;&#x866B;</li>
+</ul>
+</li>
+<li>UGC    &#x51B7;&#x542F;&#x52A8;&#x95EE;&#x9898;<ul>
+<li>&#x7528;&#x6237;&#x5728;&#x4EAB;&#x53D7;&#x670D;&#x52A1;&#x8FC7;&#x7A0B;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x7269;&#x54C1;&#x7684;&#x5C5E;&#x6027;&#xFF1A;&#x5982;&#x7528;&#x6237;&#x8BC4;&#x8BBA;&#x5185;&#x5BB9;&#xFF0C;&#x5FAE;&#x535A;&#x8BDD;&#x9898;&#xFF08;&#x7528;&#x6237;&#x62DF;&#x5B9A;&#xFF09;</li>
+</ul>
+</li>
+</ol>
+<p>&#x6839;&#x636E;PGC&#x5185;&#x5BB9;&#x6784;&#x5EFA;&#x7684;&#x7269;&#x54C1;&#x753B;&#x50CF;&#x7684;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x7269;&#x54C1;&#x7684;&#x51B7;&#x542F;&#x52A8;&#x95EE;&#x9898;</p>
+<h6 id="&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x63A8;&#x8350;&#x7684;&#x7B97;&#x6CD5;&#x6D41;&#x7A0B;&#xFF1A;">&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x63A8;&#x8350;&#x7684;&#x7B97;&#x6CD5;&#x6D41;&#x7A0B;&#xFF1A;</h6>
+<ul>
+<li>&#x6839;&#x636E;PGC/UGC&#x5185;&#x5BB9;&#x6784;&#x5EFA;&#x7269;&#x54C1;&#x753B;&#x50CF;</li>
+<li>&#x6839;&#x636E;&#x7528;&#x6237;&#x884C;&#x4E3A;&#x8BB0;&#x5F55;&#x751F;&#x6210;&#x7528;&#x6237;&#x753B;&#x50CF;</li>
+<li>&#x6839;&#x636E;&#x7528;&#x6237;&#x753B;&#x50CF;&#x4ECE;&#x7269;&#x54C1;&#x4E2D;&#x5BFB;&#x627E;&#x6700;&#x5339;&#x914D;&#x7684;TOP-N&#x7269;&#x54C1;&#x8FDB;&#x884C;&#x63A8;&#x8350;</li>
+</ul>
+<h6 id="&#x7269;&#x54C1;&#x51B7;&#x542F;&#x52A8;&#x5904;&#x7406;&#xFF1A;">&#x7269;&#x54C1;&#x51B7;&#x542F;&#x52A8;&#x5904;&#x7406;&#xFF1A;</h6>
+<ul>
+<li>&#x6839;&#x636E;PGC&#x5185;&#x5BB9;&#x6784;&#x5EFA;&#x7269;&#x54C1;&#x753B;&#x50CF;</li>
+<li>&#x5229;&#x7528;&#x7269;&#x54C1;&#x753B;&#x50CF;&#x8BA1;&#x7B97;&#x7269;&#x54C1;&#x95F4;&#x4E24;&#x4E24;&#x76F8;&#x4F3C;&#x60C5;&#x51B5;</li>
+<li>&#x4E3A;&#x6BCF;&#x4E2A;&#x7269;&#x54C1;&#x4EA7;&#x751F;TOP-N&#x6700;&#x76F8;&#x4F3C;&#x7684;&#x7269;&#x54C1;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x63A8;&#x8350;&#xFF1A;&#x5982;&#x4E0E;&#x8BE5;&#x5546;&#x54C1;&#x76F8;&#x4F3C;&#x7684;&#x5546;&#x54C1;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;&#x4E0E;&#x8BE5;&#x6587;&#x7AE0;&#x76F8;&#x4F3C;&#x6587;&#x7AE0;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="06_BiasSVD算法实现.html" class="navigation navigation-prev " aria-label="Previous page: 2.5_BiasSVD算法实现">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="08_物品画像.html" class="navigation navigation-next " aria-label="Next page: 2.7_电影推荐(ContentBased)物品画像">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.6_基于内容的推荐算法","level":"3.6","depth":1,"next":{"title":"2.7_电影推荐(ContentBased)物品画像","level":"3.7","depth":1,"path":"day02_推荐算法/08_物品画像.md","ref":"day02_推荐算法/08_物品画像.md","articles":[]},"previous":{"title":"2.5_BiasSVD算法实现","level":"3.5","depth":1,"path":"day02_推荐算法/06_BiasSVD算法实现.md","ref":"day02_推荐算法/06_BiasSVD算法实现.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","expandable-chapters-small","splitter"],"pluginsConfig":{"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"day02_推荐算法/07_基于内容的推荐算法.md","mtime":"2019-05-28T18:25:36.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-16T09:41:09.142Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

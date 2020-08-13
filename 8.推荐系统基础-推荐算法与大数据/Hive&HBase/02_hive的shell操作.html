@@ -1,0 +1,1285 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>02_Hive的shell操作 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="03_Hive的函数和自定义函数.html" />
+    
+    
+    <link rel="prev" href="01_hive介绍.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">一 推荐系统简介</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../day01_推荐系统介绍/01_推荐系统简介.html">
+            
+                <a href="../day01_推荐系统介绍/01_推荐系统简介.html">
+            
+                    
+                    1.1_推荐系统简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../day01_推荐系统介绍/02_推荐系统架构设计.html">
+            
+                <a href="../day01_推荐系统介绍/02_推荐系统架构设计.html">
+            
+                    
+                    1.2_推荐系统架构设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../day01_推荐系统介绍/03_推荐算法.html">
+            
+                <a href="../day01_推荐系统介绍/03_推荐算法.html">
+            
+                    
+                    1.3_推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../day01_推荐系统介绍/04_案例--基于协同过滤的电影推荐.html">
+            
+                <a href="../day01_推荐系统介绍/04_案例--基于协同过滤的电影推荐.html">
+            
+                    
+                    1.4_案例--基于协同过滤的电影推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../day01_推荐系统介绍/07_ 推荐系统评估.html">
+            
+                <a href="../day01_推荐系统介绍/07_ 推荐系统评估.html">
+            
+                    
+                    1.5_推荐系统评估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../day01_推荐系统介绍/08_ 推荐系统冷启动问题.html">
+            
+                <a href="../day01_推荐系统介绍/08_ 推荐系统冷启动问题.html">
+            
+                    
+                    1.6_推荐系统的冷启动问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">二 推荐系统算法</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../day02_推荐算法/01_基于模型的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/01_基于模型的协同过滤推荐.html">
+            
+                    
+                    2.1_基于模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../day02_推荐算法/03_基于回归模型的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/03_基于回归模型的协同过滤推荐.html">
+            
+                    
+                    2.2_基于回归模型的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../day02_推荐算法/04_基于矩阵分解的协同过滤推荐.html">
+            
+                <a href="../day02_推荐算法/04_基于矩阵分解的协同过滤推荐.html">
+            
+                    
+                    2.3_基于矩阵分解的协同过滤推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../day02_推荐算法/05_LFM算法实现.html">
+            
+                <a href="../day02_推荐算法/05_LFM算法实现.html">
+            
+                    
+                    2.4_LFM算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../day02_推荐算法/06_BiasSVD算法实现.html">
+            
+                <a href="../day02_推荐算法/06_BiasSVD算法实现.html">
+            
+                    
+                    2.5_BiasSVD算法实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../day02_推荐算法/07_基于内容的推荐算法.html">
+            
+                <a href="../day02_推荐算法/07_基于内容的推荐算法.html">
+            
+                    
+                    2.6_基于内容的推荐算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../day02_推荐算法/08_物品画像.html">
+            
+                <a href="../day02_推荐算法/08_物品画像.html">
+            
+                    
+                    2.7_电影推荐(ContentBased)物品画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="../day02_推荐算法/09_用户画像.html">
+            
+                <a href="../day02_推荐算法/09_用户画像.html">
+            
+                    
+                    2.8_电影推荐(ContentBased)用户画像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="../day02_推荐算法/10_TOPN用户推荐.html">
+            
+                <a href="../day02_推荐算法/10_TOPN用户推荐.html">
+            
+                    
+                    2.9_电影推荐(ContentBased)TOP-N用户推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">三 Hadoop</li>
+        
+        
+    
+
+    
+        
+        <li class="header">3.1 Hadoop概述</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../day03_Hadoop/ha1.1.html">
+            
+                <a href="../day03_Hadoop/ha1.1.html">
+            
+                    
+                    01_什么是Hadoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../day03_Hadoop/ha1.2.html">
+            
+                <a href="../day03_Hadoop/ha1.2.html">
+            
+                    
+                    02_Hadoop核心组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../day03_Hadoop/ha1.3.html">
+            
+                <a href="../day03_Hadoop/ha1.3.html">
+            
+                    
+                    03_Hadoop优势
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.2 分布式文件系统HDFS</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../day03_Hadoop/ha2.1.html">
+            
+                <a href="../day03_Hadoop/ha2.1.html">
+            
+                    
+                    01_HDFS的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../day03_Hadoop/ha2.2.html">
+            
+                <a href="../day03_Hadoop/ha2.2.html">
+            
+                    
+                    02_HDFS Shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../day03_Hadoop/ha2.3.html">
+            
+                <a href="../day03_Hadoop/ha2.3.html">
+            
+                    
+                    03_HDFS设计思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../day03_Hadoop/ha2.4.html">
+            
+                <a href="../day03_Hadoop/ha2.4.html">
+            
+                    
+                    04_HDFS架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../day03_Hadoop/ha2.5.html">
+            
+                <a href="../day03_Hadoop/ha2.5.html">
+            
+                    
+                    05_HDFS环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.3 YARN&MapReduce</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../day03_Hadoop/ha3.1.html">
+            
+                <a href="../day03_Hadoop/ha3.1.html">
+            
+                    
+                    01_资源调度框架YARN
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../day03_Hadoop/ha3.2.html">
+            
+                <a href="../day03_Hadoop/ha3.2.html">
+            
+                    
+                    02_分布式计算框架MapReduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../day03_Hadoop/ha3.3.html">
+            
+                <a href="../day03_Hadoop/ha3.3.html">
+            
+                    
+                    03_MapReduce实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="../day03_Hadoop/ha3.5.html">
+            
+                <a href="../day03_Hadoop/ha3.5.html">
+            
+                    
+                    04_MapReduce原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.4 Hadoop概念扩展</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../day03_Hadoop/ha4.1.html">
+            
+                <a href="../day03_Hadoop/ha4.1.html">
+            
+                    
+                    01_Hadoop生态系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../day03_Hadoop/ha4.2.html">
+            
+                <a href="../day03_Hadoop/ha4.2.html">
+            
+                    
+                    02_HDFS读写流程&高可用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../day03_Hadoop/ha4.3.html">
+            
+                <a href="../day03_Hadoop/ha4.3.html">
+            
+                    
+                    03_Hadoop发行版选择
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">四 Hive</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="01_hive介绍.html">
+            
+                <a href="01_hive介绍.html">
+            
+                    
+                    01_Hive基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="9.2" data-path="02_hive的shell操作.html">
+            
+                <a href="02_hive的shell操作.html">
+            
+                    
+                    02_Hive的shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="03_Hive的函数和自定义函数.html">
+            
+                <a href="03_Hive的函数和自定义函数.html">
+            
+                    
+                    03_Hive的函数和自定义函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.4" data-path="04_hive综合案例.html">
+            
+                <a href="04_hive综合案例.html">
+            
+                    
+                    04_Hive综合案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">五 HBase</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="05_hBase简介与环境部署.html">
+            
+                <a href="05_hBase简介与环境部署.html">
+            
+                    
+                    01_HBase简介与环境部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="06_hbase数据模型.html">
+            
+                <a href="06_hbase数据模型.html">
+            
+                    
+                    02_Hbase数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="07_hbase的安装与shell操作.html">
+            
+                <a href="07_hbase的安装与shell操作.html">
+            
+                    
+                    03_Hbase的安装与shell操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="08_HappyBase操作HBase.html">
+            
+                <a href="08_HappyBase操作HBase.html">
+            
+                    
+                    04_HappyBase操作HBase
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="10_HBase组件.html">
+            
+                <a href="10_HBase组件.html">
+            
+                    
+                    05_HBase组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">六 Spark Core</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../day05_Spark_core/spark_core_1.html">
+            
+                <a href="../day05_Spark_core/spark_core_1.html">
+            
+                    
+                    01_Spark入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../day05_Spark_core/spark_core_2.html">
+            
+                <a href="../day05_Spark_core/spark_core_2.html">
+            
+                    
+                    02_RDD概念介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.3" data-path="../day05_Spark_core/spark_core_3.html">
+            
+                <a href="../day05_Spark_core/spark_core_3.html">
+            
+                    
+                    03_RDD常用算子练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.4" data-path="../day05_Spark_core/spark_core_4.html">
+            
+                <a href="../day05_Spark_core/spark_core_4.html">
+            
+                    
+                    04_Spark-Core实战案例_pv&uv统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.5" data-path="../day05_Spark_core/spark_core_5.html">
+            
+                <a href="../day05_Spark_core/spark_core_5.html">
+            
+                    
+                    05_Spark-Core实战_ip统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.6" data-path="../day05_Spark_core/spark_core_6.html">
+            
+                <a href="../day05_Spark_core/spark_core_6.html">
+            
+                    
+                    06_Spark安装部署&standalone模式介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">七 Spark SQL</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../day06_Spark_sql&Spark_streaming/s1.1.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.1.html">
+            
+                    
+                    01_Spark SQL简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../day06_Spark_sql&Spark_streaming/s1.2.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.2.html">
+            
+                    
+                    02_DataFrame介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" data-path="../day06_Spark_sql&Spark_streaming/s1.3.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.3.html">
+            
+                    
+                    03_Spark SQL 处理JSON数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.4" data-path="../day06_Spark_sql&Spark_streaming/s1.4.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/s1.4.html">
+            
+                    
+                    04Spark SQL案例数据清洗
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">八 Spark Streaming</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../day06_Spark_sql&Spark_streaming/ss1.1.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.1.html">
+            
+                    
+                    05_Spark Streaming简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="../day06_Spark_sql&Spark_streaming/ss1.2.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.2.html">
+            
+                    
+                    06_Spark Streaming实现WordCount
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="13.3" data-path="../day06_Spark_sql&Spark_streaming/ss1.3.html">
+            
+                <a href="../day06_Spark_sql&Spark_streaming/ss1.3.html">
+            
+                    
+                    07_Spark Steaming的状态操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">九 电商推荐案例</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                <a href="../day07_推荐系统案例/01_个性化电商广告推荐系统介绍.html">
+            
+                    
+                    01_个性化电商广告推荐系统介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.2" data-path="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                <a href="../day07_推荐系统案例/02_根据用户行为数据创建ALS模型并召回商品.html">
+            
+                    
+                    02_根据用户行为数据创建ALS模型并召回商品
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.3" data-path="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                <a href="../day07_推荐系统案例/03_CTR预估数据准备.html">
+            
+                    
+                    03_CTR预估数据准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.4" data-path="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                <a href="../day07_推荐系统案例/04_逻辑回归实现CTR预估.html">
+            
+                    
+                    04_逻辑回归(LR)实现CTR预估
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.5" data-path="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                <a href="../day07_推荐系统案例/05_离线推荐处理.html">
+            
+                    
+                    05_离线推荐处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="14.6" data-path="../day07_推荐系统案例/06_实时推荐.html">
+            
+                <a href="../day07_推荐系统案例/06_实时推荐.html">
+            
+                    
+                    06_实时推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >02_Hive的shell操作</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="42-hive-&#x57FA;&#x672C;&#x64CD;&#x4F5C;">4.2 Hive &#x57FA;&#x672C;&#x64CD;&#x4F5C;</h2>
+<h3 id="1-hive-hql&#x64CD;&#x4F5C;&#x521D;&#x4F53;&#x9A8C;">1 Hive HQL&#x64CD;&#x4F5C;&#x521D;&#x4F53;&#x9A8C;</h3>
+<ul>
+<li><p>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">test</span>;
+</code></pre>
+</li>
+<li><p>&#x663E;&#x793A;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">DATABASES</span>;
+</code></pre>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x8868;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> student(classNo <span class="hljs-keyword">string</span>, stuNo <span class="hljs-keyword">string</span>, score <span class="hljs-built_in">int</span>) <span class="hljs-keyword">row</span> <span class="hljs-keyword">format</span> <span class="hljs-keyword">delimited</span> <span class="hljs-keyword">fields</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">&apos;,&apos;</span>;
+</code></pre>
+<ul>
+<li>row format delimited fields terminated by &apos;,&apos;  &#x6307;&#x5B9A;&#x4E86;&#x5B57;&#x6BB5;&#x7684;&#x5206;&#x9694;&#x7B26;&#x4E3A;&#x9017;&#x53F7;&#xFF0C;&#x6240;&#x4EE5;load&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;load&#x7684;&#x6587;&#x672C;&#x4E5F;&#x8981;&#x4E3A;&#x9017;&#x53F7;&#xFF0C;&#x5426;&#x5219;&#x52A0;&#x8F7D;&#x540E;&#x4E3A;NULL&#x3002;hive&#x53EA;&#x652F;&#x6301;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x5206;&#x9694;&#x7B26;&#xFF0C;hive&#x9ED8;&#x8BA4;&#x7684;&#x5206;&#x9694;&#x7B26;&#x662F;\001</li>
+</ul>
+</li>
+<li><p>&#x5C06;&#x6570;&#x636E;load&#x5230;&#x8868;&#x4E2D;</p>
+<ul>
+<li><p>&#x5728;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5982;&#x4E0B;&#x7684;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF1A;/home/hadoop/tmp/student.txt</p>
+<pre><code>C01,N0101,82
+C01,N0102,59
+C01,N0103,65
+C02,N0201,81
+C02,N0202,82
+C02,N0203,79
+C03,N0301,56
+C03,N0302,92
+C03,N0306,72
+</code></pre></li>
+<li><pre><code class="lang-sql"><span class="hljs-keyword">load</span> <span class="hljs-keyword">data</span> <span class="hljs-keyword">local</span> inpath <span class="hljs-string">&apos;/home/hadoop/tmp/student.txt&apos;</span>overwrite <span class="hljs-keyword">into</span> <span class="hljs-keyword">table</span> student;
+</code></pre>
+</li>
+<li><p>&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x5C06;student.txt&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;hive&#x7684;warehouse&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7531;hive.metastore.warehouse.dir&#x914D;&#x7F6E;&#x9879;&#x8BBE;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;/user/hive/warehouse&#x3002;Overwrite&#x9009;&#x9879;&#x5C06;&#x5BFC;&#x81F4;Hive&#x4E8B;&#x5148;&#x5220;&#x9664;student&#x76EE;&#x5F55;&#x4E0B;&#x6240;&#x6709;&#x7684;&#x6587;&#x4EF6;, &#x5E76;&#x5C06;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x6620;&#x5C04;&#x5230;&#x8868;&#x4E2D;&#x3002;
+Hive&#x4E0D;&#x4F1A;&#x5BF9;student.txt&#x505A;&#x4EFB;&#x4F55;&#x683C;&#x5F0F;&#x5904;&#x7406;&#xFF0C;&#x56E0;&#x4E3A;Hive&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x5F3A;&#x8C03;&#x6570;&#x636E;&#x7684;&#x5B58;&#x50A8;&#x683C;&#x5F0F;&#x3002;</p>
+</li>
+</ul>
+</li>
+<li><p>&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6570;&#x636E; &#x8DDF;SQL&#x7C7B;&#x4F3C;</p>
+<pre><code class="lang-sql">hive&gt;select * from student;
+</code></pre>
+</li>
+<li><p>&#x5206;&#x7EC4;&#x67E5;&#x8BE2;group by&#x548C;&#x7EDF;&#x8BA1; count</p>
+<pre><code class="lang-sql">hive&gt;select classNo,count(score) from student where score&gt;=60 group by classNo;
+</code></pre>
+<p>&#x4ECE;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x770B;&#x51FA; hive&#x628A;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x679C;&#x53D8;&#x6210;&#x4E86;MapReduce&#x4F5C;&#x4E1A;&#x901A;&#x8FC7;hadoop&#x6267;&#x884C;</p>
+</li>
+</ul>
+<h3 id="2-hive&#x7684;&#x5185;&#x90E8;&#x8868;&#x548C;&#x5916;&#x90E8;&#x8868;">2 Hive&#x7684;&#x5185;&#x90E8;&#x8868;&#x548C;&#x5916;&#x90E8;&#x8868;</h3>
+<table>
+  <tr>
+    <th></th>
+    <th>&#x5185;&#x90E8;&#x8868;(managed table)</th>
+    <th>&#x5916;&#x90E8;&#x8868;(external table)</th>
+  </tr>
+  <tr>
+    <td> &#x6982;&#x5FF5; </td>
+    <td> &#x521B;&#x5EFA;&#x8868;&#x65F6;&#x65E0;external&#x4FEE;&#x9970; </td>
+    <td> &#x521B;&#x5EFA;&#x8868;&#x65F6;&#x88AB;external&#x4FEE;&#x9970; </td>
+  </tr>
+  <tr>
+    <td> &#x6570;&#x636E;&#x7BA1;&#x7406; </td>
+    <td> &#x7531;Hive&#x81EA;&#x8EAB;&#x7BA1;&#x7406; </td>
+    <td> &#x7531;HDFS&#x7BA1;&#x7406; </td>
+  </tr>
+  <tr>
+    <td> &#x6570;&#x636E;&#x4FDD;&#x5B58;&#x4F4D;&#x7F6E; </td>
+    <td> hive.metastore.warehouse.dir  &#xFF08;&#x9ED8;&#x8BA4;&#xFF1A;/user/hive/warehouse&#xFF09; </td>
+    <td> hdfs&#x4E2D;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E; </td>
+  </tr>
+  <tr>
+    <td> &#x5220;&#x9664;&#x65F6;&#x5F71;&#x54CD; </td>
+    <td> &#x76F4;&#x63A5;&#x5220;&#x9664;&#x5143;&#x6570;&#x636E;&#xFF08;metadata&#xFF09;&#x53CA;&#x5B58;&#x50A8;&#x6570;&#x636E; </td>
+    <td> &#x4EC5;&#x4F1A;&#x5220;&#x9664;&#x5143;&#x6570;&#x636E;&#xFF0C;HDFS&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x5E76;&#x4E0D;&#x4F1A;&#x88AB;&#x5220;&#x9664; </td>
+  </tr>
+  <tr>
+    <td> &#x8868;&#x7ED3;&#x6784;&#x4FEE;&#x6539;&#x65F6;&#x5F71;&#x54CD; </td>
+    <td> &#x4FEE;&#x6539;&#x4F1A;&#x5C06;&#x4FEE;&#x6539;&#x76F4;&#x63A5;&#x540C;&#x6B65;&#x7ED9;&#x5143;&#x6570;&#x636E;  </td>
+    <td> &#x8868;&#x7ED3;&#x6784;&#x548C;&#x5206;&#x533A;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4FEE;&#x590D;&#xFF08;MSCK REPAIR TABLE table_name;&#xFF09;</td>
+  </tr>
+</table>
+
+<ul>
+<li><p>&#x6848;&#x4F8B;</p>
+<ul>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x8868;student2</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">EXTERNAL</span> <span class="hljs-keyword">TABLE</span> student2 (classNo <span class="hljs-keyword">string</span>, stuNo <span class="hljs-keyword">string</span>, score <span class="hljs-built_in">int</span>) <span class="hljs-keyword">row</span> <span class="hljs-keyword">format</span> <span class="hljs-keyword">delimited</span> <span class="hljs-keyword">fields</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">&apos;,&apos;</span> location <span class="hljs-string">&apos;/tmp/student&apos;</span>;
+</code></pre>
+<ul>
+<li><p>&#x88C5;&#x8F7D;&#x6570;&#x636E;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">load</span> <span class="hljs-keyword">data</span> <span class="hljs-keyword">local</span> inpath <span class="hljs-string">&apos;/root/tmp/student.txt&apos;</span> overwrite <span class="hljs-keyword">into</span> <span class="hljs-keyword">table</span> student2;
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>&#x663E;&#x793A;&#x8868;&#x4FE1;&#x606F;</p>
+<pre><code class="lang-sql">desc formatted table_name;
+</code></pre>
+</li>
+<li><p>&#x5220;&#x9664;&#x8868;&#x67E5;&#x770B;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">drop</span> <span class="hljs-keyword">table</span> student;
+</code></pre>
+</li>
+<li><p>&#x518D;&#x6B21;&#x521B;&#x5EFA;&#x5916;&#x90E8;&#x8868; student2</p>
+</li>
+<li><p>&#x4E0D;&#x63D2;&#x5165;&#x6570;&#x636E;&#x76F4;&#x63A5;&#x67E5;&#x8BE2;&#x67E5;&#x770B;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> student2;
+</code></pre>
+</li>
+</ul>
+<h3 id="3-&#x5206;&#x533A;&#x8868;">3 &#x5206;&#x533A;&#x8868;</h3>
+<ul>
+<li><p>&#x4EC0;&#x4E48;&#x662F;&#x5206;&#x533A;&#x8868;</p>
+<ul>
+<li>&#x968F;&#x7740;&#x8868;&#x7684;&#x4E0D;&#x65AD;&#x589E;&#x5927;&#xFF0C;&#x5BF9;&#x4E8E;&#x65B0;&#x7EAA;&#x5F55;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x67E5;&#x627E;&#xFF0C;&#x5220;&#x9664;&#x7B49;(DML)&#x7684;&#x7EF4;&#x62A4;&#x4E5F;&#x66F4;&#x52A0;&#x56F0;&#x96BE;&#x3002;&#x5BF9;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8D85;&#x5927;&#x578B;&#x8868;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x628A;&#x5B83;&#x7684;&#x6570;&#x636E;&#x5206;&#x6210;&#x82E5;&#x5E72;&#x4E2A;&#x5C0F;&#x8868;&#xFF0C;&#x4ECE;&#x800C;&#x7B80;&#x5316;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7BA1;&#x7406;&#x6D3B;&#x52A8;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x7B80;&#x5316;&#x540E;&#x7684;&#x5C0F;&#x8868;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x4E3A;&#x4E00;&#x4E2A;&#x5355;&#x4E2A;&#x7684;&#x5206;&#x533A;&#x3002;</li>
+<li>hive&#x4E2D;&#x5206;&#x533A;&#x8868;&#x5B9E;&#x9645;&#x5C31;&#x662F;&#x5BF9;&#x5E94;hdfs&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x72EC;&#x7ACB;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x8BE5;&#x6587;&#x4EF6;&#x5939;&#x5185;&#x7684;&#x6587;&#x4EF6;&#x662F;&#x8BE5;&#x5206;&#x533A;&#x6240;&#x6709;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x5206;&#x533A;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5206;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;&#x5206;&#x7C7B;&#x628A;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x653E;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x3002;</li>
+<li>&#x5206;&#x7C7B;&#x7684;&#x6807;&#x51C6;&#x5C31;&#x662F;&#x5206;&#x533A;&#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x4EE5;&#x4E00;&#x4E2A;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x591A;&#x4E2A;&#x3002;</li>
+<li>&#x5206;&#x533A;&#x8868;&#x7684;&#x610F;&#x4E49;&#x5728;&#x4E8E;&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#x3002;&#x67E5;&#x8BE2;&#x65F6;&#x5C3D;&#x91CF;&#x5229;&#x7528;&#x5206;&#x533A;&#x5B57;&#x6BB5;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;&#x5206;&#x533A;&#x5B57;&#x6BB5;&#xFF0C;&#x5C31;&#x4F1A;&#x5168;&#x90E8;&#x626B;&#x63CF;&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x5206;&#x533A;&#x8868;</p>
+<pre><code class="lang-shell">tom,4300
+jerry,12000
+mike,13000
+jake,11000
+rob,10000
+</code></pre>
+</li>
+</ul>
+<pre><code class="lang-sql">  <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> employee (<span class="hljs-keyword">name</span> <span class="hljs-keyword">string</span>,salary <span class="hljs-built_in">bigint</span>) partitioned <span class="hljs-keyword">by</span> (date1 <span class="hljs-keyword">string</span>) <span class="hljs-keyword">row</span> <span class="hljs-keyword">format</span> <span class="hljs-keyword">delimited</span> <span class="hljs-keyword">fields</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">&apos;,&apos;</span> <span class="hljs-keyword">lines</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">&apos;\n&apos;</span> <span class="hljs-keyword">stored</span> <span class="hljs-keyword">as</span> textfile;
+</code></pre>
+<ul>
+<li><p>&#x67E5;&#x770B;&#x8868;&#x7684;&#x5206;&#x533A;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">partitions</span> employee;
+</code></pre>
+</li>
+<li><p>&#x6DFB;&#x52A0;&#x5206;&#x533A;</p>
+<pre><code>alter table employee add if not exists partition(date1=&apos;2018-12-01&apos;);
+</code></pre></li>
+<li><p>&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x5230;&#x5206;&#x533A;</p>
+<pre><code>load data local inpath &apos;/root/tmp/employee.txt&apos; into table employee partition(date1=&apos;2018-12-01&apos;);
+</code></pre></li>
+<li><p>&#x5982;&#x679C;&#x91CD;&#x590D;&#x52A0;&#x8F7D;&#x540C;&#x540D;&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;*_copy_1.txt</p>
+</li>
+<li><p>&#x5916;&#x90E8;&#x5206;&#x533A;&#x8868;&#x5373;&#x4F7F;&#x6709;&#x5206;&#x533A;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;, &#x4E5F;&#x5FC5;&#x987B;&#x8981;&#x901A;&#x8FC7;hql&#x6DFB;&#x52A0;&#x5206;&#x533A;, &#x624D;&#x80FD;&#x770B;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x6570;&#x636E;</p>
+<pre><code class="lang-shell">hadoop fs -mkdir /user/hive/warehouse/employee/date1=2018-12-04
+hadoop fs -copyFromLocal /tmp/employee.txt /user/hive/warehouse/test.db/employee/date1=2018-12-04/employee.txt
+</code></pre>
+<ul>
+<li><p>&#x6B64;&#x65F6;&#x67E5;&#x770B;&#x8868;&#x4E2D;&#x6570;&#x636E;&#x53D1;&#x73B0;&#x6570;&#x636E;&#x5E76;&#x6CA1;&#x6709;&#x53D8;&#x5316;, &#x9700;&#x8981;&#x901A;&#x8FC7;hql&#x6DFB;&#x52A0;&#x5206;&#x533A;</p>
+<pre><code>alter table employee add if not exists partition(date1=&apos;2018-12-04&apos;);
+</code></pre></li>
+<li><p>&#x6B64;&#x65F6;&#x518D;&#x6B21;&#x67E5;&#x770B;&#x624D;&#x80FD;&#x770B;&#x5230;&#x65B0;&#x52A0;&#x5165;&#x7684;&#x6570;&#x636E;</p>
+</li>
+</ul>
+</li>
+<li><p>&#x603B;&#x7ED3;</p>
+<ul>
+<li>&#x5229;&#x7528;&#x5206;&#x533A;&#x8868;&#x65B9;&#x5F0F;&#x51CF;&#x5C11;&#x67E5;&#x8BE2;&#x65F6;&#x9700;&#x8981;&#x626B;&#x63CF;&#x7684;&#x6570;&#x636E;&#x91CF;<ul>
+<li>&#x5206;&#x533A;&#x5B57;&#x6BB5;&#x4E0D;&#x662F;&#x8868;&#x4E2D;&#x7684;&#x5217;, &#x6570;&#x636E;&#x6587;&#x4EF6;&#x4E2D;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x5217;</li>
+<li>&#x5206;&#x533A;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x540D;</li>
+<li>&#x67E5;&#x770B;&#x6570;&#x636E;&#x65F6;, hive&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5206;&#x533A;&#x5217;</li>
+<li>&#x652F;&#x6301;&#x591A;&#x7EA7;&#x5206;&#x533A;, &#x591A;&#x7EA7;&#x5B50;&#x76EE;&#x5F55;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-&#x52A8;&#x6001;&#x5206;&#x533A;">4 &#x52A8;&#x6001;&#x5206;&#x533A;</h3>
+<ul>
+<li><p>&#x5728;&#x5199;&#x5165;&#x6570;&#x636E;&#x65F6;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x5206;&#x533A;(&#x5305;&#x62EC;&#x76EE;&#x5F55;&#x7ED3;&#x6784;)</p>
+</li>
+<li><p>&#x521B;&#x5EFA;&#x8868;</p>
+<pre><code>create table employee2 (name string,salary bigint) partitioned by (date1 string) row format delimited fields terminated by &apos;,&apos; lines terminated by &apos;\n&apos; stored as textfile;
+</code></pre></li>
+<li><p>&#x5BFC;&#x5165;&#x6570;&#x636E;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">table</span> employee2 <span class="hljs-keyword">partition</span>(date1) <span class="hljs-keyword">select</span> <span class="hljs-keyword">name</span>,salary,date1 <span class="hljs-keyword">from</span> employee;
+</code></pre>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x52A8;&#x6001;&#x5206;&#x533A;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;</p>
+<pre><code class="lang-shell">set hive.exec.dynamic.partition.mode=nonstrict;
+</code></pre>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="01_hive介绍.html" class="navigation navigation-prev " aria-label="Previous page: 01_Hive基本概念">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="03_Hive的函数和自定义函数.html" class="navigation navigation-next " aria-label="Next page: 03_Hive的函数和自定义函数">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"02_Hive的shell操作","level":"9.2","depth":1,"next":{"title":"03_Hive的函数和自定义函数","level":"9.3","depth":1,"path":"Hive&HBase/03_Hive的函数和自定义函数.md","ref":"Hive&HBase/03_Hive的函数和自定义函数.md","articles":[]},"previous":{"title":"01_Hive基本概念","level":"9.1","depth":1,"path":"Hive&HBase/01_hive介绍.md","ref":"Hive&HBase/01_hive介绍.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["mathjax","expandable-chapters-small","splitter"],"pluginsConfig":{"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Hive&HBase/02_hive的shell操作.md","mtime":"2019-06-16T09:30:14.998Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-16T09:41:09.142Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
